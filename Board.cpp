@@ -32,7 +32,7 @@ namespace Chess
   //invalid position
     for(char r = '8'; r >= '1'; r--) {
       for(char c = 'A'; c <= 'H'; c++) {
-        if(position.first == c && position.second = r){
+        if(position.first == c && position.second == r){
           throw Exception("invalid position");
         }
     
@@ -40,7 +40,7 @@ namespace Chess
     if (occ.find(position) != occ.end()) {
       throw Exception("position is occupied");
     }
-    
+
   //create new piece at given position
     occ[position] = new_piece;
   }

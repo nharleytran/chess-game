@@ -24,21 +24,25 @@ namespace Chess
   
   void Board::add_piece(const Position& position, const char& piece_designator) {
 
-    // check if position is inside the board limits
-      // error
+    if (occ.find(position) != occ.end()) {
+      throw Exception("invalid position");
+    }
 
-    if (occ.find(position) != occ.end()) {}
-      // error
+    if (occ[position] != nullptr) {
+      throw Exception("position is occupied");
+    }
 
     Piece* new_piece = create_piece(piece_designator);
-    if (new_piece == nullptr) {}
-      // error
+    if (new_piece == nullptr) {
+      throw Exception("invalid designator");
+    }
 
     occ[position] = new_piece;
 
   }
 
   void Board::display() const {
+    // TODO: edit to make output pretty
     std::cout << *this << "\n";
   }
 

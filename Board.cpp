@@ -35,6 +35,8 @@ namespace Chess
         if(position.first == c && position.second == r){
           throw Exception("invalid position");
         }
+      }
+    }
     
   //position is occupied
     if (occ.find(position) != occ.end()) {

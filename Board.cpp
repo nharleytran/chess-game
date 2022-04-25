@@ -16,10 +16,6 @@ namespace Chess
   Board::Board(){}
 
   const Piece* Board::operator()(const Position& position) const {
-    /////////////////////////
-    // [REPLACE THIS STUB] //
-    /////////////////////////
-
     if (occ.find(position) != occ.end())
       return occ.at(position);
     else
@@ -27,24 +23,22 @@ namespace Chess
   }
   
   void Board::add_piece(const Position& position, const char& piece_designator) {
-    /////////////////////////
-    // [REPLACE THIS STUB] //
-    /////////////////////////
 
-    if (!valid_designator(piece_designator))
-      // error
     // check if position is inside the board limits
       // error
-    if (occ.find(position) != occ.end())
+
+    if (occ.find(position) != occ.end()) {}
       // error
 
-    occ[position] = create_piece(piece_designator);
+    Piece* new_piece = create_piece(piece_designator);
+    if (new_piece == nullptr) {}
+      // error
+
+    occ[position] = new_piece;
+
   }
 
   void Board::display() const {
-    /////////////////////////
-    // [REPLACE THIS STUB] //
-    /////////////////////////
     std::cout << *this << "\n";
   }
 

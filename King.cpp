@@ -1,4 +1,5 @@
 #include "King.h"
+#include <stdlib.h>
 
 namespace Chess
 {

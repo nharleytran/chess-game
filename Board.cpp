@@ -24,21 +24,25 @@ namespace Chess
   
   void Board::add_piece(const Position& position, const char& piece_designator) {
 
-    if (occ.find(position) != occ.end()) {
-      throw Exception("invalid position");
-    }
-
-    if (occ[position] != nullptr) {
-      throw Exception("position is occupied");
-    }
-
+  //invalid designator
     Piece* new_piece = create_piece(piece_designator);
     if (new_piece == nullptr) {
       throw Exception("invalid designator");
     }
-
+  //invalid position
+    for(char r = '8'; r >= '1'; r--) {
+      for(char c = 'A'; c <= 'H'; c++) {
+        if(position.first == c && position.second = r){
+          throw Exception("invalid position");
+        }
+    
+  //position is occupied
+    if (occ.find(position) != occ.end()) {
+      throw Exception("position is occupied");
+    }
+    
+  //create new piece at given position
     occ[position] = new_piece;
-
   }
 
   void Board::display() const {

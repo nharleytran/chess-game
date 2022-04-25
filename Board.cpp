@@ -19,13 +19,25 @@ namespace Chess
     /////////////////////////
     // [REPLACE THIS STUB] //
     /////////////////////////
-    return NULL;
+
+    if (occ.find(position) != occ.end())
+      return occ.at(position);
+    else
+      return nullptr;
   }
   
   void Board::add_piece(const Position& position, const char& piece_designator) {
     /////////////////////////
     // [REPLACE THIS STUB] //
     /////////////////////////
+
+    if (!valid_designator(piece_designator))
+      // error
+    // check if position is inside the board limits
+      // error
+    if (occ.find(position) != occ.end())
+      // error
+
     occ[position] = create_piece(piece_designator);
   }
 
@@ -33,6 +45,7 @@ namespace Chess
     /////////////////////////
     // [REPLACE THIS STUB] //
     /////////////////////////
+    std::cout << *this << "\n";
   }
 
   bool Board::has_valid_kings() const {

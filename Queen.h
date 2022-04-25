@@ -3,6 +3,7 @@
 
 #include "Piece.h"
 
+
 namespace Chess
 {
 	class Queen : public Piece {

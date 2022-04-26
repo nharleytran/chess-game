@@ -116,7 +116,7 @@ int main(int argc, char* argv[]) {
 					  argument << " ) = " << argument.length() << std::endl;
 				// And make the move
 				} else {
-          // TODO: add try catch blocks to recover from illegral moves
+          // TODO: add try catch blocks to recover from illegal moves
 					game.make_move(std::make_pair(argument[0], argument[1]),
 								   std::make_pair(argument[2], argument[3]));
 				}

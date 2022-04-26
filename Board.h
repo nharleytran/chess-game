@@ -26,6 +26,15 @@ namespace Chess
 		// Default constructor
 		Board();
 
+		// Copy Constructor
+		Board(const Board& rhs);
+
+		// = operator overload
+		Board& operator=(const Board& rhs);
+
+		// Destructor
+		~Board();
+
 		// Returns a const pointer to the piece at a prescribed location if it exists,
 		// or nullptr if there is nothing there.
 		const Piece* operator() (const Position& position) const;

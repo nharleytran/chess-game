@@ -16,7 +16,18 @@ namespace Chess
   Board::Board(){}
 
   char Board::get_piece_type(const Position& position) {
-    return (*occ.at(position)).to_ascii();
+    if (occ.find(position) == occ.end()) {
+      return '-';
+    }
+    else {
+      return (*occ.at(position)).to_ascii();
+    }
+  }
+
+  Position& get_king(bool white) {
+    
+
+
   }
 
   const Piece* Board::operator()(const Position& position) const {

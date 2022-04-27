@@ -39,7 +39,7 @@ namespace Chess
 		char get_piece_type(const Position& position);
 
 		// Returns position of specified king
-		Position& get_king(bool white);
+		Position get_king(bool white);
 
 		// Returns a const pointer to the piece at a prescribed location if it exists,
 		// or nullptr if there is nothing there.

@@ -24,9 +24,22 @@ namespace Chess
     }
   }
 
-  Position& get_king(bool white) {
-    
+  Position Board::get_king(bool white) {
 
+    if (white) {
+      for (std::map<Position, Piece*>::iterator it = occ.begin(); it != occ.end(); ++it) {
+        if ((*it->second).to_ascii() == 'K') {
+          return it->first;
+        }
+      } 
+    }
+    else {
+      for (std::map<Position, Piece*>::iterator it = occ.begin(); it != occ.end(); ++it) {
+        if ((*it->second).to_ascii() == 'k') {
+          return it->first;
+        }
+      } 
+    }
 
   }
 

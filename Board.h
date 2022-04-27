@@ -52,6 +52,10 @@ namespace Chess
 		// -- if the specified position is occupied, throw exception with error message "position is occupied"
 		void add_piece(const Position& position, const char& piece_designator);
 
+		void erase_piece(const Position& position);
+
+		void move_piece(const Position& start, const Position& end);
+
 		// Displays the board by printing it to stdout
 		void display() const;
 

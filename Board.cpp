@@ -112,6 +112,17 @@ namespace Chess
     std::cout << *this << "\n";
   }
 
+  void Board::erase_piece(const Position& position) {
+    delete occ.at(position);
+    occ.erase(position);
+  }
+
+  void Board::move_piece(const Position& start, const Position& end){
+    erase_piece(end);
+    add_piece(end, occ.at(start)->to_ascii());
+    erase_piece(start);
+  }
+
   bool Board::has_valid_kings() const {
     int white_king_count = 0;
     int black_king_count = 0;
@@ -131,6 +142,7 @@ namespace Chess
     }
     return (white_king_count == 1) && (black_king_count == 1);
   }
+
 
   /////////////////////////////////////
   // DO NOT MODIFY THIS FUNCTION!!!! //

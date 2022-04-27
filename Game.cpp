@@ -40,8 +40,6 @@ namespace Chess
 	}
 
 	void Game::make_move(const Position& start, const Position& end) {
-		//Make copy of the board
-		
 		//EXCEPTION: start position on board?
 		if(!position_on_board(start)){
 			throw Exception("start position is not on board");
@@ -58,7 +56,6 @@ namespace Chess
 		if ((board(start))->is_white() != is_white_turn){
 			throw Exception("piece color and turn do not match");
 		}
-
 		//EXCEPTION: illegal move shape?
 		if(!(board(start))->legal_move_shape(start,end)){
 			throw Exception("illegal move shape");
@@ -69,7 +66,6 @@ namespace Chess
 				throw Exception("cannot capture own piece");
 			}
 		}
-
 		//EXCEPTION: illegal capture shape?
 		if (!(board(start)->legal_capture_shape(start,end))){
 			throw Exception("illegal capture shape");
@@ -78,13 +74,20 @@ namespace Chess
 		if (!path_clear_check(start, end)){
 			throw Exception("path is not clear");
 		}
+		//Make copy of the board
+		Game fakegame = *this;
 
-		//Move in actual board
-
+		//Move in fake board
+		fakegame.board.move_piece(start, end);
+		
 		//EXCEPTION: move exposes check?
+		if(fakegame.in_check(is_white_turn)){
+			throw Exception("move exposes check");
+		}
 
-		//if does not pass exception, Actual board = copy board
-
+		//If passed, actually move the piece
+		delete &fakegame;
+		board.move_piece(start, end);
 	}
 
 	bool Game::position_on_board(const Position& x){
@@ -179,6 +182,7 @@ namespace Chess
 					}
 				}
 			}
+		}
 		return false;
 	}
 

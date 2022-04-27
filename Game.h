@@ -16,6 +16,9 @@ namespace Chess
 		// piece positions, and sets the state to white's turn
 		Game();
 
+		//destructor
+		~Game();
+
 		// Returns true if it is white's turn
 		/////////////////////////////////////
 		// DO NOT MODIFY THIS FUNCTION!!!! //

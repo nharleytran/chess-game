@@ -35,6 +35,9 @@ namespace Chess
 		// Destructor
 		~Board();
 
+		// Returns char representing the piece type at the given position
+		char get_piece_type(const Position& position);
+
 		// Returns a const pointer to the piece at a prescribed location if it exists,
 		// or nullptr if there is nothing there.
 		const Piece* operator() (const Position& position) const;

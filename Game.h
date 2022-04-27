@@ -38,6 +38,8 @@ namespace Chess
 		// the turn is switched white <-> black. Otherwise, an exception is thrown
 		void make_move(const Position& start, const Position& end);
 
+		bool obstruction_check(const Position& start, const Position& end);
+
 		// Returns true if the designated player is in check
 		bool in_check(const bool& white) const;
 

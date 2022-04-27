@@ -45,6 +45,58 @@ namespace Chess
 		//higher level 
 	}
 
+	bool Game::obstruction_check(const Position& start, const Position& end) {
+	
+	int dx = end.first - start.first;
+    int dy = end.second - start.second;
+
+	// vertical movement
+    if (dx == 0 && dy !=0) {
+      if (dy > 0) {
+        for (char row = start.second + 1; row < end.second; row++) {
+          Position tmp = Position(start.first, row);
+          if (board(tmp) != nullptr) {
+            return false;
+			}}
+      	}else {
+        for (char row = end.second + 1; row < start.second; row++) {
+          Position tmp = Position(start.first, row);
+          if (board(tmp) != nullptr) {
+            return false;
+			}}}}
+
+    // horizontal movement
+    else if (dx != 0 && dy ==0) {
+      if (dx > 0) {
+        for (char col = start.first + 1; col < end.first; col++) {
+          Position tmp = Position(col, start.second);
+          if (board(tmp) != nullptr) {
+            return false;
+          	}}
+      	}else {
+        for (char col = end.first + 1; col < start.second; col++) {
+          Position tmp = Position(col, start.second);
+          if (board(tmp) != nullptr) {
+            return false;
+          	}}}}
+
+	//diagonal movement
+	else if (dx == dy) {
+		if (dx > 0){
+			for (char i = '1', j ='A'; i < dx; i++, j++){
+				Position tmp = Position(start.first+j, start.second+i);
+				if (board(tmp)!= nullptr){
+					return false;
+					}}
+		}else {
+			for (char i = '1', j ='A'; i < dx; i++, j++){
+				Position tmp = Position(end.first+j, end.second+i);
+				if (board(tmp)!= nullptr){
+					return false;
+					}}}}
+	return true;
+	}
+
 	bool Game::in_check(const bool& white) const {
 		/////////////////////////
 		// [REPLACE THIS STUB] //

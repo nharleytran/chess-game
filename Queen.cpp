@@ -1,5 +1,5 @@
 #include "Queen.h"
-
+#include <stdlib.h>
 bool Chess::Queen::legal_move_shape(const Position& start, const Position& end) const 
 {
     int dx = abs(end.first - start.first);

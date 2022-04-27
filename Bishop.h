@@ -2,6 +2,7 @@
 #define BISHOP_H
 
 #include "Piece.h"
+#include "Board.h"
 
 namespace Chess
 {
@@ -19,6 +20,8 @@ namespace Chess
 		// DO NOT MODIFY THIS FUNCTION!!!! //
 		/////////////////////////////////////
 		std::string to_unicode() const override { return is_white() ? "\u2657" : "\u265D"; }
+
+		bool obstruction_check(const Position& start, const Position& end, const Board& board) const;
 
 	private:
 		/////////////////////////////////////

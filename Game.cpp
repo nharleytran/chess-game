@@ -39,13 +39,10 @@ namespace Chess
 	}
 
 	void Game::make_move(const Position& start, const Position& end) {
-		/////////////////////////
-		// [REPLACE THIS STUB] //
-		/////////////////////////
-		//higher level 
+		
 	}
 
-	bool Game::obstruction_check(const Position& start, const Position& end) {
+	bool Game::path_clear_check(const Position& start, const Position& end) {
 	
 	int dx = end.first - start.first;
     int dy = end.second - start.second;

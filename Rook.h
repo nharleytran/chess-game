@@ -2,7 +2,6 @@
 #define ROOK_H
 
 #include "Piece.h"
-#include "Board.h"
 
 namespace Chess
 {
@@ -10,9 +9,6 @@ namespace Chess
 
 	public:
     bool legal_move_shape(const Position& start, const Position& end) const override;
-
-	// check for obstruction along movement path
-	bool obstruction_check(const Position& start, const Position& end, const Board& board) const;
 
 		/////////////////////////////////////
 		// DO NOT MODIFY THIS FUNCTION!!!! //

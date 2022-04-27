@@ -1,4 +1,5 @@
 #include <cassert>
+#include "Exceptions.h"
 #include "Game.h"
 
 namespace Chess
@@ -39,7 +40,28 @@ namespace Chess
 	}
 
 	void Game::make_move(const Position& start, const Position& end) {
+		//EXCEPTION: start position on board?
+
+		//EXCEPTION: end position on board?
+
+		//EXCEPTION: no piece at start position?
+
+		//Determine what piece is it, color?
+
+		//EXCEPTION: piece color and turn match?
+
+		//EXCEPTION: illegal move shape?
 		
+		//EXCEPTION: cannot capture own piece?
+
+		//EXCEPTION: path is not clear?
+		if (!path_clear_check(start, end)){
+			throw Exception("path is not clear");
+		}
+		//EXCEPTION: move exposes check?
+
+		//Move the piece: 
+
 	}
 
 	bool Game::path_clear_check(const Position& start, const Position& end) {

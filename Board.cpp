@@ -99,7 +99,7 @@ namespace Chess
     for(char r = '8'; r >= '1'; r--) {
       for(char c = 'A'; c <= 'H'; c++) {
         if(position.first == c && position.second == r){
-          throw Exception("invalid position");
+          //throw Exception("invalid position");
         }
       }
     }
@@ -124,9 +124,10 @@ namespace Chess
   }
 
   void Board::move_piece(const Position& start, const Position& end){
-    erase_piece(end);
+    
     add_piece(end, occ.at(start)->to_ascii());
     erase_piece(start);
+    erase_piece(end);
   }
 
   bool Board::has_valid_kings() const {

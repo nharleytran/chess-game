@@ -80,6 +80,8 @@ namespace Chess
       		for(char c = 'A'; c <= 'H'; c++) {
         		if(x.first == c && x.second == r){
 					return true;}
+			}
+		}	
 		return false;
 	}
 

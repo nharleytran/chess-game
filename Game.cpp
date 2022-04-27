@@ -145,9 +145,7 @@ namespace Chess
 	}
 
 	bool Game::in_check(const bool& white) const {
-		/////////////////////////
-		// [REPLACE THIS STUB] //
-		/////////////////////////
+		Position king_pos = board.get_king(white);
 		return false;
 	}
 

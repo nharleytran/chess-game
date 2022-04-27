@@ -15,6 +15,34 @@ namespace Chess
   /////////////////////////////////////
   Board::Board(){}
 
+  //Copy Constructor
+  Board::Board(const Board& rhs){
+    *this = rhs;
+  }
+
+  // = operator overload
+  Board & Board:: operator=(const Board& rhs){
+  // Maybe need an if
+  Board::~Board();
+  for (std::map<Position, Piece*>::const_iterator it = rhs.occ.begin();
+	 it != rhs.occ.end();
+	 it++){
+     this->occ[it->first] = it->second;
+   }
+    return *this;
+  }
+
+  // Destructor
+  Board :: ~Board(){
+    for (std::map<Position, Piece*>::const_iterator it = this->occ.begin();
+	    it != this->occ.end();
+	    it++)
+    {
+      Piece* temp = it->second;
+      delete temp; 
+    }
+  }
+
   char Board::get_piece_type(const Position& position) {
     if (occ.find(position) == occ.end()) {
       return '-';

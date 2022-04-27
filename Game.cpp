@@ -69,6 +69,11 @@ namespace Chess
 				throw Exception("cannot capture own piece");
 			}
 		}
+
+		//EXCEPTION: illegal capture shape?
+		if (!(board(start)->legal_capture_shape(start,end){
+			throw Exception("illegal capture shape");
+		}
 		//EXCEPTION: path is not clear?
 		if (!path_clear_check(start, end)){
 			throw Exception("path is not clear");

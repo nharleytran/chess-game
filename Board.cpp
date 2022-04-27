@@ -43,26 +43,30 @@ namespace Chess
     }
   }
 
-  char Board::get_piece_type(const Position& position) {
-    if (occ.find(position) == occ.end()) {
-      return '-';
-    }
-    else {
-      return (*occ.at(position)).to_ascii();
-    }
-  }
+  // char Board::get_piece_type(const Position& position) {
+  //   if (occ.find(position) == occ.end()) {
+  //     return '-';
+  //   }
+  //   else {
+  //     return (*occ.at(position)).to_ascii();
+  //   }
+  // }
 
-  Position Board::get_king(bool white) {
+  Position Board::get_king(const bool white) const {
     Position x;
     if (white) {
-      for (std::map<Position, Piece*>::iterator it = occ.begin(); it != occ.end(); ++it) {
+      for (std::map<Position, Piece*>::const_iterator it = occ.begin();
+	      it != occ.end();
+	      it++) {
         if ((*it->second).to_ascii() == 'K') {
           x= it->first;
         }
       } 
     }
     else {
-      for (std::map<Position, Piece*>::iterator it = occ.begin(); it != occ.end(); ++it) {
+      for (std::map<Position, Piece*>::const_iterator it = occ.begin();
+	      it != occ.end();
+	      it++) {
         if ((*it->second).to_ascii() == 'k') {
           x= it->first;
         }

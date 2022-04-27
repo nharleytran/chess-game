@@ -71,7 +71,7 @@ namespace Chess
 		}
 
 		//EXCEPTION: illegal capture shape?
-		if (!(board(start)->legal_capture_shape(start,end){
+		if (!(board(start)->legal_capture_shape(start,end))){
 			throw Exception("illegal capture shape");
 		}
 		//EXCEPTION: path is not clear?
@@ -97,7 +97,7 @@ namespace Chess
 		return false;
 	}
 
-	bool Game::path_clear_check(const Position& start, const Position& end) {
+	bool Game::path_clear_check(const Position& start, const Position& end) const {
 	
 	int dx = end.first - start.first;
     int dy = end.second - start.second;
@@ -149,8 +149,36 @@ namespace Chess
 	return true;
 	}
 
-	bool Game::in_check(const bool& white) const {
+
+	bool Game::in_check(const bool& white) const{
+
 		Position king_pos = board.get_king(white);
+		for(char r = '8'; r >= '1'; r--) {
+      		for(char c = 'A'; c <= 'H'; c++) {
+        		Position tempo(c,r);
+				//if there is a piece at tempo
+				if (board(tempo)!= nullptr){
+					//if that piece belong to the other team (different color)
+					if(board(tempo)->is_white() != white){
+						//if that piece has a legal move to capture king
+						switch (board(tempo)->to_ascii()){
+							case 'Q': case 'q': case 'R' : case 'r': case 'B': case 'b': case 'N': case 'n': 		//maybe account King
+								if (path_clear_check(tempo,king_pos) &&
+								board(tempo)->legal_move_shape(tempo, king_pos)){
+									return true;
+								}
+								break;
+							case 'P': case 'p':
+								if (board(tempo)->legal_capture_shape(tempo,king_pos)){
+									return true;
+								}
+								break;
+							default:
+								break;
+						}
+					}
+				}
+			}
 		return false;
 	}
 

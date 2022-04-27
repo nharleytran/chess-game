@@ -23,7 +23,13 @@ namespace Chess
   // = operator overload
   Board & Board:: operator=(const Board& rhs){
   // Maybe need an if
-  Board::~Board();
+    for (std::map<Position, Piece*>::const_iterator it = this->occ.begin();
+	    it != this->occ.end();
+	    it++)
+    {
+      Piece* temp = it->second;
+      delete temp; 
+    }
   for (std::map<Position, Piece*>::const_iterator it = rhs.occ.begin();
 	 it != rhs.occ.end();
 	 it++){

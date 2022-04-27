@@ -17,7 +17,7 @@ namespace Chess
 		Game();
 
 		//destructor
-		~Game();
+		//~Game();
 
 		// Returns true if it is white's turn
 		/////////////////////////////////////

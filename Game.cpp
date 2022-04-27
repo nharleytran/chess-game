@@ -66,7 +66,7 @@ namespace Chess
 			}}}}
 
     // horizontal movement
-    else if (dx != 0 && dy ==0) {
+    if (dx != 0 && dy ==0) {
       if (dx > 0) {
         for (char col = start.first + 1; col < end.first; col++) {
           Position tmp = Position(col, start.second);
@@ -81,7 +81,7 @@ namespace Chess
           	}}}}
 
 	//diagonal movement
-	else if (dx == dy) {
+	if (dx == dy) {
 		if (dx > 0){
 			for (char i = '1', j ='A'; i < dx; i++, j++){
 				Position tmp = Position(start.first+j, start.second+i);

@@ -54,14 +54,21 @@ namespace Chess
 		if(board(start) == nullptr){
 			throw Exception("no piece at start position");
 		}
-		//Determine what piece is it, color?
-
 		//EXCEPTION: piece color and turn match?
+		if ((board(start))->is_white() != is_white_turn){
+			throw Exception("piece color and turn do not match");
+		}
 
 		//EXCEPTION: illegal move shape?
-		
+		if(!(board(start))->legal_move_shape(start,end)){
+			throw Exception("illegal move shape");
+		}
 		//EXCEPTION: cannot capture own piece?
-
+		if (board(end)!= nullptr){
+			if (board(start)->is_white() == board(end)->is_white()){
+				throw Exception("cannot capture own piece");
+			}
+		}
 		//EXCEPTION: path is not clear?
 		if (!path_clear_check(start, end)){
 			throw Exception("path is not clear");

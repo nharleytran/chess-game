@@ -41,11 +41,17 @@ namespace Chess
 
 	void Game::make_move(const Position& start, const Position& end) {
 		//EXCEPTION: start position on board?
-
+		if(!position_on_board(start)){
+			throw Exception("start position is not on board");
+		}
 		//EXCEPTION: end position on board?
-
+		if(!position_on_board(end)){
+			throw Exception("end position is not on board");
+		}
 		//EXCEPTION: no piece at start position?
-
+		if(board(start) == nullptr){
+			throw Exception("no piece at start position");
+		}
 		//Determine what piece is it, color?
 
 		//EXCEPTION: piece color and turn match?
@@ -62,6 +68,14 @@ namespace Chess
 
 		//Move the piece: 
 
+	}
+
+	bool Game::position_on_board(const Position& x){
+		for(char r = '8'; r >= '1'; r--) {
+      		for(char c = 'A'; c <= 'H'; c++) {
+        		if(x.first == c && x.second == r){
+					return true;}
+		return false;
 	}
 
 	bool Game::path_clear_check(const Position& start, const Position& end) {

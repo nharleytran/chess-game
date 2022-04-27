@@ -40,6 +40,8 @@ namespace Chess
 	}
 
 	void Game::make_move(const Position& start, const Position& end) {
+		//Make copy of the board
+		
 		//EXCEPTION: start position on board?
 		if(!position_on_board(start)){
 			throw Exception("start position is not on board");
@@ -64,9 +66,12 @@ namespace Chess
 		if (!path_clear_check(start, end)){
 			throw Exception("path is not clear");
 		}
+
+		//Move in actual board
+
 		//EXCEPTION: move exposes check?
 
-		//Move the piece: 
+		//if does not pass exception, Actual board = copy board
 
 	}
 

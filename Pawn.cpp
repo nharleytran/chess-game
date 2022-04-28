@@ -28,7 +28,6 @@ bool Chess::Pawn::legal_capture_shape(const Position& start, const Position& end
 {
     int dx = end.first - start.first;
     int dy = end.second - start.second;
-
     if (is_white())
         return abs(dx) == 1 && dy == 1;
     else

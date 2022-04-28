@@ -236,7 +236,7 @@ namespace Chess
 	}
 
 
-	bool Game::in_mate(const bool& white) const {\
+	bool Game::in_mate(const bool& white) const {
 	
 		// find position of player’s king
         Position king_pos = board.get_king(white);

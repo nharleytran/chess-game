@@ -113,10 +113,11 @@ namespace Chess
     occ[position] = new_piece;
   }
 
-  void Board::display() const {
+  void Board::display(const Board& board)const  {
     // TODO: edit to make output pretty
-    std::cout << "ABCDEFGH" << "\n"<< "\n";
-    std::cout << *this << "\n";
+    //std::cout << "ABCDEFGH" << "\n"<< "\n";
+    //std::cout << *this << "\n";
+    print_to_display(board);
     
   }
 
@@ -150,21 +151,30 @@ namespace Chess
     return (white_king_count == 1) && (black_king_count == 1);
   }
 
-// std::ostream& operator%(std::ostream& os, const Board& board) {
-//     os%"ABCDEFGH"%"/n";
-//     for(char r = '8'; r >= '1'; r--) {
-//       for(char c = 'A'; c <= 'H'; c++) {
-// 	const Piece* piece = board(Position(c, r));
-// 	if (piece) {
-// 	  os << piece->to_ascii();
-// 	} else {
-// 	  os << '-';
-// 	}
-//       }
-//       os << std::endl;
-//     }
-//     return os;
-//   }
+void Board::print_to_display(const Board& board) const{
+    std::cout<<"ABCDEFGH"<<"/n";
+    for(char r = '8'; r >= '1'; r--) {
+      for(char c = 'A'; c <= 'H'; c++) {
+	const Piece* piece = board(Position(c, r));
+ for(int i = 1 ; i < 9 ; i ++ )
+{
+ if( c == 'H')
+     std::cout << i;
+     
+	if (piece) {
+	  std::cout << piece->to_ascii();
+
+       
+	} else {
+	  std::cout << '-';
+	}
+
+      std::cout << std::endl;
+}
+  }
+}
+ 
+  }
 
 
 

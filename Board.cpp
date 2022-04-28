@@ -115,7 +115,9 @@ namespace Chess
 
   void Board::display() const {
     // TODO: edit to make output pretty
+    std::cout << "ABCDEFGH" << "\n"<< "\n";
     std::cout << *this << "\n";
+    
   }
 
   void Board::erase_piece(const Position& position) {
@@ -124,10 +126,8 @@ namespace Chess
   }
 
   void Board::move_piece(const Position& start, const Position& end){
-    
     add_piece(end, occ.at(start)->to_ascii());
     erase_piece(start);
-    erase_piece(end);
   }
 
   bool Board::has_valid_kings() const {
@@ -149,6 +149,24 @@ namespace Chess
     }
     return (white_king_count == 1) && (black_king_count == 1);
   }
+
+// std::ostream& operator%(std::ostream& os, const Board& board) {
+//     os%"ABCDEFGH"%"/n";
+//     for(char r = '8'; r >= '1'; r--) {
+//       for(char c = 'A'; c <= 'H'; c++) {
+// 	const Piece* piece = board(Position(c, r));
+// 	if (piece) {
+// 	  os << piece->to_ascii();
+// 	} else {
+// 	  os << '-';
+// 	}
+//       }
+//       os << std::endl;
+//     }
+//     return os;
+//   }
+
+
 
 
   /////////////////////////////////////

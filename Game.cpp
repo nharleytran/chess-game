@@ -1,6 +1,7 @@
 #include <cassert>
 #include "Exceptions.h"
 #include "Game.h"
+#include <stdlib.h>
 
 namespace Chess
 {
@@ -39,6 +40,8 @@ namespace Chess
 		board.add_piece(Position( 'A'+4 , '1'+7 ) , 'k' );
 	}
 
+	Game:: ~Game(){}
+
 	void Game::make_move(const Position& start, const Position& end) {
 		//EXCEPTION: start position on board?
 		if(!position_on_board(start)){
@@ -56,28 +59,46 @@ namespace Chess
 		if ((board(start))->is_white() != is_white_turn){
 			throw Exception("piece color and turn do not match");
 		}
+
 		//EXCEPTION: illegal move shape?
-		if(!(board(start))->legal_move_shape(start,end)){
-			throw Exception("illegal move shape");
+		if (board(end)== nullptr && (board(start)->to_ascii() == 'p' || board(start)->to_ascii() == 'P')){
+			if(!(board(start))->legal_move_shape(start,end)){
+				throw Exception("illegal move shape");
+			}
 		}
+		if (board(start)->to_ascii() != 'p' && board(start)->to_ascii() != 'P') {
+			if(!(board(start))->legal_move_shape(start,end)){
+				throw Exception("illegal move shape");
+			}
+		}
+		
 		//EXCEPTION: cannot capture own piece?
 		if (board(end)!= nullptr){
 			if (board(start)->is_white() == board(end)->is_white()){
 				throw Exception("cannot capture own piece");
 			}
 		}
-		// //EXCEPTION: illegal capture shape?
-		// if (!(board(start)->legal_capture_shape(start,end))){
-		// 	throw Exception("illegal capture shape");
-		// }
+		//EXCEPTION: illegal capture shape?
+		if (board(end)!= nullptr){
+			if (board(start)->is_white() != board(end)->is_white()){
+				if (!(board(start)->legal_capture_shape(start,end))){
+					throw Exception("illegal capture shape");
+				}
+			}
+		}
 		//EXCEPTION: path is not clear?
 		if (!path_clear_check(start, end)){
 			throw Exception("path is not clear");
 		}
+
 		//Make copy of the board
 		Game fakegame = *this;
 
 		//Move in fake board
+		// fakegame.board.move_piece(start, end);
+		if (fakegame.board(end)!= nullptr){
+			if (fakegame.board(start)->is_white() != fakegame.board(end)->is_white()){
+				fakegame.board.erase_piece(end);}}
 		fakegame.board.move_piece(start, end);
 		
 		//EXCEPTION: move exposes check?
@@ -86,8 +107,17 @@ namespace Chess
 		}
 
 		//If passed, actually move the piece
-		delete &fakegame;
+		// delete &fakegame;
+
+		//Normal Move and capturing
+		if (board(end)!= nullptr){
+			if (board(start)->is_white() != board(end)->is_white()){
+				board.erase_piece(end);}}
 		board.move_piece(start, end);
+
+		//Change turn
+		if (is_white_turn) is_white_turn=false;
+		else is_white_turn = true;
 	}
 
 	bool Game::position_on_board(const Position& x){
@@ -128,30 +158,49 @@ namespace Chess
           if (board(tmp) != nullptr) {
             return false;
           	}}
-      	}else {
-        for (char col = end.first + 1; col < start.second; col++) {
+      	}else if (dx < 0) {
+			
+        for (char col = end.first + 1; col < start.first; col++) {
           Position tmp = Position(col, start.second);
           if (board(tmp) != nullptr) {
             return false;
           	}}}}
 
 	//diagonal movement
-	if (dx == dy) {
-		if (dx > 0){
-			for (char i = '1', j ='A'; i < dx; i++, j++){
+	//CLEAN THE CODE
+	if (abs(dx) == abs(dy)) {
+		if (dx > 0 && dy > 0){
+			for (char i = 1, j = 1; i < abs(dx); i++, j++){
 				Position tmp = Position(start.first+j, start.second+i);
 				if (board(tmp)!= nullptr){
 					return false;
 					}}
-		}else {
-			for (char i = '1', j ='A'; i < dx; i++, j++){
-				Position tmp = Position(end.first+j, end.second+i);
+		}
+		if (dx > 0 && dy < 0){
+			for (char i = 1, j = 1; i < abs(dx); i++, j++){
+				Position tmp = Position(start.first+j, start.second-i);
 				if (board(tmp)!= nullptr){
 					return false;
-					}}}}
+					}}
+		}
+		if (dx < 0 && dy > 0){
+			for (char i = 1, j = 1; i < abs(dx); i++, j++){
+				Position tmp = Position(start.first-j, start.second+i);
+				if (board(tmp)!= nullptr){
+					return false;
+					}}
+		}
+		if (dx < 0 && dy < 0){
+			for (char i = 1, j = 1; i < abs(dx); i++, j++){
+				Position tmp = Position(start.first-j, start.second-i);
+				if (board(tmp)!= nullptr){
+					return false;
+					}}
+		}
+	}
 	return true;
 	}
-
+	
 
 	bool Game::in_check(const bool& white) const{
 

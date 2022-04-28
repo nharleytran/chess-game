@@ -8,7 +8,7 @@ bool Chess::Pawn::legal_move_shape(const Position& start, const Position& end) c
     if (is_white())
     {
         // pawn in starting cell
-        if (start.second == 1 /* starting cell */)
+        if (start.second == '2' /* starting cell */)
             return (dx == 0 && dy == 1) || (dx == 0 && dy == 2);
         else
             return (dx == 0 && dy == 1);
@@ -16,7 +16,7 @@ bool Chess::Pawn::legal_move_shape(const Position& start, const Position& end) c
     else
     {
         // pawn in starting cell
-        if (start.second == -1 /* starting cell */)
+        if (start.second == '7' /* starting cell */)
             return (dx == 0 && dy == -1) || (dx == 0 && dy == -2);
         else
             return (dx == 0 && dy == -1);

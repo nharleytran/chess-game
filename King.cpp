@@ -10,9 +10,9 @@ namespace Chess
 
     // dx == dy && dx == 1  - nonzero diagonal movement
     // dx == 0 && dy == 1  - vertical movement
-    // dx != 0 && dy == 1  - horizontal movement
+    // dx == 1 && dy ==0  - horizontal movement
 
-    return (dx == dy && dx == 1) || (dx == 1 && dy != 0) || (dx != 0 && dy == 1);
+    return (dx == dy && dx == 1) || (dx == 0 && dy == 1) || (dx == 1 && dy ==0);
 
     return false;
   }

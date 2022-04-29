@@ -118,10 +118,10 @@ namespace Chess
     // TODO: edit to make output pretty
     std::cout << "  A B C D E F G H" << "\n";
     // std::cout << *this << "\n";
-    int i =1;
+    int i =8;
     for(char r = '8'; r >= '1'; r--) {
       std::cout << i << " ";
-      i++;
+      i--;
       for(char c = 'A'; c <= 'H'; c++) {
 	      if (occ.find(Position(c, r)) != occ.end()){
           Terminal :: color_bg(Terminal::WHITE);

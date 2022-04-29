@@ -322,9 +322,22 @@ namespace Chess
 
 
       std::istream& operator>> (std::istream& is, Game& game) {
-		/////////////////////////
-		// [REPLACE THIS STUB] //
-		/////////////////////////
+	
+// 	std::cout << is;
+// 	for(char r = '8'; r >= '1'; r--) {
+//       for(char c = 'A'; c <= 'H'; c++) {
+// 		const Piece* piece = board(Position(c, r));
+// 		if (piece) {
+// 	  		os << piece->to_ascii();
+// 	} else {
+// 	  		os << '-';
+// 	}
+//       }
+//       		os << std::endl;
+//     }
+//     	return os;
+//   }
+// }
 		return is;
 	}
 

@@ -40,6 +40,7 @@ namespace Chess
 
   // Destructor
   Board :: ~Board(){
+    std::cout <<"destructor called" << "\n";
     for (std::map<Position, Piece*>::const_iterator it = this->occ.begin();
 	    it != this->occ.end();
 	    it++)
@@ -117,7 +118,6 @@ namespace Chess
     // TODO: edit to make output pretty
     Terminal :: color_fg(true, Terminal::RED);
     std::cout << "   A  B  C  D  E  F  G  H" << "\n";
-    // std::cout << *this << "\n";
     int i =8;
     Terminal :: color_fg(true, Terminal::RED);
     for(char r = '8'; r >= '1'; r--) {

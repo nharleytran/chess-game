@@ -57,9 +57,8 @@ namespace Chess
 		void move_piece(const Position& start, const Position& end);
 
 		// Displays the board by printing it to stdout
-		void display(const Board& board) const;
-		// print 
-		void print_to_display(const Board& board)const;
+		void display() const;
+		
 		// Returns true if the board has the right number of kings on it
 		bool has_valid_kings() const;
 

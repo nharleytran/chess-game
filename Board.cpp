@@ -113,11 +113,10 @@ namespace Chess
     occ[position] = new_piece;
   }
 
-  void Board::display(const Board& board)const  {
+  void Board::display()const  {
     // TODO: edit to make output pretty
-    //std::cout << "ABCDEFGH" << "\n"<< "\n";
-    //std::cout << *this << "\n";
-    print_to_display(board);
+    std::cout << "ABCDEFGH" << "\n"<< "\n";
+    std::cout << *this << "\n";
     
   }
 
@@ -150,35 +149,6 @@ namespace Chess
     }
     return (white_king_count == 1) && (black_king_count == 1);
   }
-
-void Board::print_to_display(const Board& board) const{
-    std::cout<<"ABCDEFGH"<<"/n";
-    for(char r = '8'; r >= '1'; r--) {
-      for(char c = 'A'; c <= 'H'; c++) {
-	const Piece* piece = board(Position(c, r));
- for(int i = 1 ; i < 9 ; i ++ )
-{
- if( c == 'H')
-     std::cout << i;
-     
-	if (piece) {
-	  std::cout << piece->to_ascii();
-
-       
-	} else {
-	  std::cout << '-';
-	}
-
-      std::cout << std::endl;
-}
-  }
-}
- 
-  }
-
-
-
-
   /////////////////////////////////////
   // DO NOT MODIFY THIS FUNCTION!!!! //
   /////////////////////////////////////

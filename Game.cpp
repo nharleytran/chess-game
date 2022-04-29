@@ -107,7 +107,7 @@ namespace Chess
 		}
 
 		//If passed, actually move the piece
-		// delete &fakegame;
+		delete &fakegame;
 
 		//Normal Move and capturing
 		if (board(end)!= nullptr){
@@ -237,7 +237,7 @@ namespace Chess
 
 
 	bool Game::in_mate(const bool& white) const {
-	
+	/*
 		// find position of player’s king
         Position king_pos = board.get_king(white);
 	
@@ -298,8 +298,9 @@ namespace Chess
 			    }
 		    }
 	    }
-
-        return true;
+	*/
+        return false;
+	
 	}
 
 

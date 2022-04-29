@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 
 		// Display the board
 		game.display();
-
+		
 		// Indicate whose turn it is
 		if (game.turn_white()) {
 			std::cout << "white move" << std::endl;

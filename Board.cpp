@@ -40,7 +40,6 @@ namespace Chess
 
   // Destructor
   Board :: ~Board(){
-    std::cout <<"destructor called" << "\n";
     for (std::map<Position, Piece*>::const_iterator it = this->occ.begin();
 	    it != this->occ.end();
 	    it++)
@@ -48,6 +47,7 @@ namespace Chess
       Piece* temp = it->second;
       delete temp; 
     }
+    std::cout <<"destructor called" << "\n";
   }
 
   // char Board::get_piece_type(const Position& position) {

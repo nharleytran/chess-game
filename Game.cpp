@@ -106,9 +106,6 @@ namespace Chess
 			throw Exception("move exposes check");
 		}
 		fakegame.display();
-
-		//If passed, actually move the piece
-		// delete &fakegame;
 	
 		//Normal Move and capturing
 		// if (board(end)!= nullptr){
@@ -322,7 +319,11 @@ namespace Chess
 
 
       std::istream& operator>> (std::istream& is, Game& game) {
-	
+	// Deallocate current game
+		// *this.~board();
+
+	// loop through input file, check if not -
+
 // 	std::cout << is;
 // 	for(char r = '8'; r >= '1'; r--) {
 //       for(char c = 'A'; c <= 'H'; c++) {

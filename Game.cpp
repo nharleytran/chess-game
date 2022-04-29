@@ -90,7 +90,7 @@ namespace Chess
 		if (!path_clear_check(start, end)){
 			throw Exception("path is not clear");
 		}
-
+	/*
 		//Make copy of the board
 		Game fakegame = *this;
 
@@ -108,7 +108,7 @@ namespace Chess
 
 		//If passed, actually move the piece
 		delete &fakegame;
-
+	*/
 		//Normal Move and capturing
 		if (board(end)!= nullptr){
 			if (board(start)->is_white() != board(end)->is_white()){
@@ -240,12 +240,12 @@ namespace Chess
 	/*
 		// find position of player’s king
         Position king_pos = board.get_king(white);
-	
+		
 	    // iterate through all board positions (start positions)
 	    for(char r = '8'; r >= '1'; r--) {
 		    for(char c = 'A'; c <= 'H'; c++) {
 			    Position tempo(c,r);
-
+				
 			    // if there is a piece at tempo
 			    if (board(tempo) != nullptr){
 

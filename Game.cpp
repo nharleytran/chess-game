@@ -429,13 +429,11 @@ Position king_pos = board.get_king(white);
 	for(char r = '8'; r >= '1'; r--) {
       for(char c = 'A'; c <= 'H'; c++) {
 		Position tempo(c, r);
-		while( it != list.end() ){
 			if (*it != '-'){
-				game.board.add_piece(tempo,*it);
-				it++;
+				fakegame.board.add_piece(tempo,*it);
 				std::cout << *it;
-				break;
 			}
+		it++;
 		}
 	  }
 	}

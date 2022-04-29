@@ -46,7 +46,7 @@ namespace Chess
 		const Piece* operator() (const Position& position) const;
 
 		// Promotes a piece to Queen
-		void Board::promote(const Position& position, const bool white);
+		void promote(const Position& position, const bool white);
 
 		// Attempts to add a new piece with the specified designator, at the given position.
 		// Throw exception for the following cases:

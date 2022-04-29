@@ -261,6 +261,15 @@ namespace Chess
   void Board::move_piece(const Position& start, const Position& end){
     add_piece(end, occ.at(start)->to_ascii());
     erase_piece(start);
+    // promote piece if needed
+    if (occ.at(end)->to_ascii() == 'P' && end.second == '8') { // white pawn
+      bool white = true;
+      promote(end, white);
+    }
+    if (occ.at(end)->to_ascii() == 'p' && end.second == '1') { // black pawn
+      bool white = false;
+      promote(end, white);
+    }
   }
 
   bool Board::has_valid_kings() const {

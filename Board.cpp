@@ -89,6 +89,22 @@ namespace Chess
     else
       return nullptr;
   }
+
+  void Board::promote(const Position& position, const bool white) {
+		
+    // white piece promotion
+    if (white) {
+		  erase_piece(position);
+		  add_piece(position, 'Q');
+	  }
+
+    // black piece promotion
+    else {
+      erase_piece(position);
+		  add_piece(position, 'q');
+    }
+
+  }
   
   void Board::add_piece(const Position& position, const char& piece_designator) {
 

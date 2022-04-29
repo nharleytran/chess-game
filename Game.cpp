@@ -212,7 +212,7 @@ namespace Chess
 					if(board(tempo)->is_white() != white){
 						//if that piece has a legal move to capture king
 						switch (board(tempo)->to_ascii()){
-							case 'Q': case 'q': case 'R' : case 'r': case 'B': case 'b': case 'N': case 'n': 		//maybe account King
+							case 'Q': case 'q': case 'R' : case 'r': case 'B': case 'b': case 'N': case 'n': case 'K': case 'k':
 								if (path_clear_check(tempo,king_pos) &&
 								board(tempo)->legal_move_shape(tempo, king_pos)){
 									return true;

@@ -2,6 +2,7 @@
 #include "Exceptions.h"
 #include "Game.h"
 #include <stdlib.h>
+#include <vector>
 
 namespace Chess
 {
@@ -320,25 +321,36 @@ namespace Chess
 
       std::istream& operator>> (std::istream& is, Game& game) {
 	// Deallocate current game
-		// *this.~board();
-
-	// loop through input file, check if not -
-
-// 	std::cout << is;
-// 	for(char r = '8'; r >= '1'; r--) {
-//       for(char c = 'A'; c <= 'H'; c++) {
-// 		const Piece* piece = board(Position(c, r));
-// 		if (piece) {
-// 	  		os << piece->to_ascii();
-// 	} else {
-// 	  		os << '-';
-// 	}
-//       }
-//       		os << std::endl;
-//     }
-//     	return os;
-//   }
-// }
+		// game.board.~Board();
+		Game fakegame;
+	// loop through input file, and added a piece
+		char token;
+		std::cout << "HERE";
+		std::vector<char> list;
+  			while (is >> token){
+    		list.push_back(token);
+    		}
+		
+		// for (std:: vector <char>:: iterator it = list.begin(); it != list.end(); ++it){
+		// 	char cur = *it;
+		// 	std:: cout <<cur;
+		// 	if (cur == '\n') list.erase(it);
+		// }
+	std:: vector <char>:: iterator it = list.begin();
+	for(char r = '8'; r >= '1'; r--) {
+      for(char c = 'A'; c <= 'H'; c++) {
+		Position tempo(c, r);
+		while( it != list.end() ){
+			if (*it != '-'){
+				game.board.add_piece(tempo,*it);
+				it++;
+				std::cout << *it;
+				break;
+			}
+		}
+	  }
+	}
+	fakegame.display();
 		return is;
 	}
 

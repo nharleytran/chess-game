@@ -50,6 +50,7 @@ namespace Chess
     std::cout <<"destructor called" << "\n";
   }
 
+
   // char Board::get_piece_type(const Position& position) {
   //   if (occ.find(position) == occ.end()) {
   //     return '-';

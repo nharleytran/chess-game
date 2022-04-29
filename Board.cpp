@@ -115,8 +115,28 @@ namespace Chess
 
   void Board::display()const  {
     // TODO: edit to make output pretty
-    std::cout << "ABCDEFGH" << "\n"<< "\n";
-    std::cout << *this << "\n";
+    // TODO: edit to make output pretty
+    std::cout << "  A B C D E F G H" << "\n";
+    // std::cout << *this << "\n";
+    int i =1;
+    for(char r = '8'; r >= '1'; r--) {
+      std::cout << i << " ";
+      i++;
+      for(char c = 'A'; c <= 'H'; c++) {
+	      if (occ.find(Position(c, r)) != occ.end()){
+          Terminal :: color_bg(Terminal::WHITE);
+          Terminal :: color_fg(true, Terminal::BLACK);
+
+          std::cout << occ.at(Position(c, r))->to_ascii() << " ";
+
+          Terminal :: set_default();
+	    } else {
+	        std::cout << "- ";
+	      }
+      }
+      std::cout << std::endl;
+    }
+    std::cout << "  A B C D E F G H" << "\n";
     
   }
 

@@ -115,29 +115,125 @@ namespace Chess
 
   void Board::display()const  {
     // TODO: edit to make output pretty
-    // TODO: edit to make output pretty
-    std::cout << "  A B C D E F G H" << "\n";
+    Terminal :: color_fg(true, Terminal::RED);
+    std::cout << "   A  B  C  D  E  F  G  H" << "\n";
     // std::cout << *this << "\n";
     int i =8;
+    Terminal :: color_fg(true, Terminal::RED);
     for(char r = '8'; r >= '1'; r--) {
       std::cout << i << " ";
-      i--;
       for(char c = 'A'; c <= 'H'; c++) {
 	      if (occ.find(Position(c, r)) != occ.end()){
+          Terminal :: color_fg(true, Terminal::MAGENTA);
+         
+          if (c%2 != 0 && r%2 !=0){
+          Terminal :: color_bg(Terminal::BLACK);
+          switch (occ.at(Position(c, r))->to_ascii()){
+            case 'R' : std:: cout << " ♖ "; break;
+            case 'K' : std:: cout << " ♔ "; break;
+            case 'Q' : std:: cout << " ♕ "; break;
+            case 'N' : std:: cout << " ♘ "; break;
+            case 'P' : std:: cout << " ♙ "; break;
+            case 'B' : std:: cout << " ♗ "; break;
+            case 'r' : std:: cout << " ♜ "; break;
+            case 'k' : std:: cout << " ♚ "; break;
+            case 'q' : std:: cout << " ♛ "; break;
+            case 'n' : std:: cout << " ♞ "; break;
+            case 'p' : std:: cout << " ♟ "; break;
+            case 'b' : std:: cout << " ♝ "; break;
+            default: break;
+          }
+          }
+          if (c%2 == 0 && r%2 !=0){
           Terminal :: color_bg(Terminal::WHITE);
-          Terminal :: color_fg(true, Terminal::BLACK);
-
-          std::cout << occ.at(Position(c, r))->to_ascii() << " ";
-
+          switch (occ.at(Position(c, r))->to_ascii()){
+            case 'R' : std:: cout << " ♖ "; break;
+            case 'K' : std:: cout << " ♔ "; break;
+            case 'Q' : std:: cout << " ♕ "; break;
+            case 'N' : std:: cout << " ♘ "; break;
+            case 'P' : std:: cout << " ♙ "; break;
+            case 'B' : std:: cout << " ♗ "; break;
+            case 'r' : std:: cout << " ♜ "; break;
+            case 'k' : std:: cout << " ♚ "; break;
+            case 'q' : std:: cout << " ♛ "; break;
+            case 'n' : std:: cout << " ♞ "; break;
+            case 'p' : std:: cout << " ♟ "; break;
+            case 'b' : std:: cout << " ♝ "; break;
+            default: break;
+          }
+          
+          }
+          if (c%2 == 0 && r%2 ==0){
+          Terminal :: color_bg(Terminal::BLACK);
+          switch (occ.at(Position(c, r))->to_ascii()){
+            case 'R' : std:: cout << " ♖ "; break;
+            case 'K' : std:: cout << " ♔ "; break;
+            case 'Q' : std:: cout << " ♕ "; break;
+            case 'N' : std:: cout << " ♘ "; break;
+            case 'P' : std:: cout << " ♙ "; break;
+            case 'B' : std:: cout << " ♗ "; break;
+            case 'r' : std:: cout << " ♜ "; break;
+            case 'k' : std:: cout << " ♚ "; break;
+            case 'q' : std:: cout << " ♛ "; break;
+            case 'n' : std:: cout << " ♞ "; break;
+            case 'p' : std:: cout << " ♟ "; break;
+            case 'b' : std:: cout << " ♝ "; break;
+            default: break;
+          }
+          
+          }
+          if (c%2 != 0 && r%2 ==0){
+          Terminal :: color_bg(Terminal::WHITE);
+          switch (occ.at(Position(c, r))->to_ascii()){
+            case 'R' : std:: cout << " ♖ "; break;
+            case 'K' : std:: cout << " ♔ "; break;
+            case 'Q' : std:: cout << " ♕ "; break;
+            case 'N' : std:: cout << " ♘ "; break;
+            case 'P' : std:: cout << " ♙ "; break;
+            case 'B' : std:: cout << " ♗ "; break;
+            case 'r' : std:: cout << " ♜ "; break;
+            case 'k' : std:: cout << " ♚ "; break;
+            case 'q' : std:: cout << " ♛ "; break;
+            case 'n' : std:: cout << " ♞ "; break;
+            case 'p' : std:: cout << " ♟ "; break;
+            case 'b' : std:: cout << " ♝ "; break;
+            default: break;
+          }
+          
+          }
           Terminal :: set_default();
+
 	    } else {
-	        std::cout << "- ";
+        if (c%2 != 0 && r%2 ==0){
+          Terminal :: color_bg(Terminal::WHITE);
+          std::cout << "   ";
+          Terminal :: set_default();
+        }
+        if (c%2 == 0 && r%2 ==0){
+          Terminal :: color_bg(Terminal::BLACK);
+          std::cout << "   ";
+          Terminal :: set_default();
+        }
+        if (c%2 == 0 && r%2 !=0){
+          Terminal :: color_bg(Terminal::WHITE);
+          std::cout << "   ";
+          Terminal :: set_default();
+        }
+        if (c%2 != 0 && r%2 !=0){
+          Terminal :: color_bg(Terminal::BLACK);
+          std::cout << "   ";
+          Terminal :: set_default();
+        }
 	      }
       }
+      Terminal :: color_fg(true, Terminal::RED);
+      std::cout << " " << i;
+      i--;
       std::cout << std::endl;
     }
-    std::cout << "  A B C D E F G H" << "\n";
-    
+    Terminal :: color_fg(true, Terminal::RED);
+    std::cout << "   A  B  C  D  E  F  G  H" << "\n";
+    Terminal :: set_default();
   }
 
   void Board::erase_piece(const Position& position) {

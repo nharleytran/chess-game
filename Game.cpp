@@ -337,7 +337,7 @@ namespace Chess
 	bool Game::in_stalemate(const bool& white) const {
 		if (!this->in_check(white)){
 			//create fake board
-			Game fakegame;
+			Game fakegame;3
 		for(char r = '8'; r >= '1'; r--) {
       		for(char c = 'A'; c <= 'H'; c++) {
         		Position tempo(c,r);

@@ -342,9 +342,9 @@ namespace Chess
 		Position tempo(c, r);
 			if (*it != '-'){
 				fakegame.board.add_piece(tempo,*it);
-				it++;
 				std::cout << *it;
 			}
+		it++;
 		}
 	  }
 	}

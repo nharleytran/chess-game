@@ -46,50 +46,50 @@ namespace Chess
 	void Game::make_move(const Position& start, const Position& end) {
 		//EXCEPTION: start position on board?
 		if(!position_on_board(start)){
-			throw Exception("start position is not on board");
+			throw Exception(" start position is not on board");
 		}
 		//EXCEPTION: end position on board?
 		if(!position_on_board(end)){
-			throw Exception("end position is not on board");
+			throw Exception(" end position is not on board");
 		}
 		//EXCEPTION: no piece at start position?
 		if(board(start) == nullptr){
-			throw Exception("no piece at start position");
+			throw Exception(" no piece at start position");
 		}
 		//EXCEPTION: piece color and turn match?
 		if ((board(start))->is_white() != is_white_turn){
-			throw Exception("piece color and turn do not match");
+			throw Exception(" piece color and turn do not match");
 		}
 
 		//EXCEPTION: illegal move shape?
 		if (board(end)== nullptr && (board(start)->to_ascii() == 'p' || board(start)->to_ascii() == 'P')){
 			if(!(board(start))->legal_move_shape(start,end)){
-				throw Exception("illegal move shape");
+				throw Exception(" illegal move shape");
 			}
 		}
 		if (board(start)->to_ascii() != 'p' && board(start)->to_ascii() != 'P') {
 			if(!(board(start))->legal_move_shape(start,end)){
-				throw Exception("illegal move shape");
+				throw Exception(" illegal move shape");
 			}
 		}
 		
 		//EXCEPTION: cannot capture own piece?
 		if (board(end)!= nullptr){
 			if (board(start)->is_white() == board(end)->is_white()){
-				throw Exception("cannot capture own piece");
+				throw Exception(" cannot capture own piece");
 			}
 		}
 		//EXCEPTION: illegal capture shape?
 		if (board(end)!= nullptr){
 			if (board(start)->is_white() != board(end)->is_white()){
 				if (!(board(start)->legal_capture_shape(start,end))){
-					throw Exception("illegal capture shape");
+					throw Exception(" illegal capture shape");
 				}
 			}
 		}
 		//EXCEPTION: path is not clear?
 		if (!path_clear_check(start, end)){
-			throw Exception("path is not clear");
+			throw Exception(" path is not clear");
 		}
 	
 		//Make copy of the board
@@ -104,7 +104,7 @@ namespace Chess
 		
 		//EXCEPTION: move exposes check?
 		if(fakegame.in_check(is_white_turn)){
-			throw Exception("move exposes check");
+			throw Exception(" move exposes check");
 		}
 	
 		//Normal Move and capturing
@@ -481,14 +481,14 @@ namespace Chess
   			while (is >> token){
     		list.push_back(token);
     		}
-		if (list.size() != 65){
-					throw Chess::Exception();
-				}
-		for (std:: vector <char>:: iterator it1 = list.begin();it1 != list.end();it1++){
-			if (*it1 != 'q' || *it1 != 'Q' || *it1 != 'k' || *it1 != 'K'|| *it1 != 'p'|| *it1 != 'P'|| *it1 != 'b'|| *it1 != 'B'|| *it1 != 'n'|| *it1 != 'N'|| *it1 != 'r'|| *it1 != 'R'|| *it1 != 'm'|| *it1 != 'M'|| *it1 != 'w'|| *it1 != '-'){
-					throw Chess::Exception();
-				}
-		}
+		// if (list.size() != 65){
+		// 			throw Chess::Exception();
+		// 		}
+		// for (std:: vector <char>:: iterator it1 = list.begin();it1 != list.end();it1++){
+		// 	if (*it1 != 'q' || *it1 != 'Q' || *it1 != 'k' || *it1 != 'K'|| *it1 != 'p'|| *it1 != 'P'|| *it1 != 'b'|| *it1 != 'B'|| *it1 != 'n'|| *it1 != 'N'|| *it1 != 'r'|| *it1 != 'R'|| *it1 != 'm'|| *it1 != 'M'|| *it1 != 'w'|| *it1 != '-'){
+		// 			throw Chess::Exception();
+		// 		}
+		// }
 	// loop through the board and add piece
 	std:: vector <char>:: iterator it = list.begin();
 	for(char r = '8'; r >= '1'; r--) {

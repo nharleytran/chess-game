@@ -90,9 +90,9 @@ int main(int argc, char* argv[]) {
 				std::string argument;
 				std::cin >> argument;
 				std::ifstream ifs;
-				if (ifs){
-					throw Chess::Exception();
-				}
+				// if (ifs){
+				// 	throw Chess::Exception();
+				// }
 				ifs.open( argument );
 				ifs >> game;
 				ifs.close();

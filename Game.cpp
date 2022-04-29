@@ -233,9 +233,40 @@ namespace Chess
 		return false;
 	}
 
-
 	bool Game::in_mate(const bool& white) const {
-	/*
+	
+		// find position of player’s king
+        Position king_pos = board.get_king(white);
+		//create fake board
+		if (this->in_check(white)){
+			Game fakegame;
+		for(char r = '8'; r >= '1'; r--) {
+      		for(char c = 'A'; c <= 'H'; c++) {
+				  Position tempo(c,r);
+					// update fake board back 
+					fakegame = *this;
+
+					// try to move in fake board
+					try {fakegame.make_move(king_pos, tempo);}
+					catch (...){continue;}
+
+					// catch (const std::exception& e){std::cerr << "Could not make move:" << e.what()<< "\n";}		  
+					if(!fakegame.in_check(white)){
+						fakegame.display();
+					return false;
+					}
+					
+					// fakegame.~Game();
+			}
+		}
+		fakegame.display();
+			return true;
+		}
+		return false;
+	}
+/*
+	bool Game::in_mate(const bool& white) const {
+	
 		// find position of player’s king
         Position king_pos = board.get_king(white);
 		
@@ -296,74 +327,75 @@ namespace Chess
 			    }
 		    }
 	    }
-	*/
-        return false;
+	
+        return true;
 	
 	}
+	*/
 
 
 	bool Game::in_stalemate(const bool& white) const {
-// 		// find position of player’s king
-// Position king_pos = board.get_king(white);
+		// find position of player’s king
+Position king_pos = board.get_king(white);
 	
-// 	// iterate through all board positions (start positions)
-// 	for(char r = '8'; r >= '1'; r--) {
-// 		for(char c = 'A'; c <= 'H'; c++) {
-// 			Position tempo(c,r);
+	// iterate through all board positions (start positions)
+	for(char r = '8'; r >= '1'; r--) {
+		for(char c = 'A'; c <= 'H'; c++) {
+			Position tempo(c,r);
 
-// 			// if there is a piece at tempo
-// 			if (board(tempo) != nullptr){
+			// if there is a piece at tempo
+			if (board(tempo) != nullptr){
 
-// 				// if that piece belongs to the same team as the king (same color)
-// 				if(board(tempo)->is_white() == white){
+				// if that piece belongs to the same team as the king (same color)
+				if(board(tempo)->is_white() == white){
 				
-// 					// iterate through all board positions (end positions)
-// 					for(char h = '8'; h >= '1'; r--) {
-// 						for(char k = 'A'; k <= 'H'; c++) {
-// 							Position temp_end(h,k);
+					// iterate through all board positions (end positions)
+					for(char h = '8'; h >= '1'; r--) {
+						for(char k = 'A'; k <= 'H'; c++) {
+							Position temp_end(h,k);
 						
-// 							// check if move is legal
-// 							bool legal_move = false;
-// 							switch (board(tempo)->to_ascii()){
-//                             	case 'Q': case 'q': case 'R' : case 'r': case 'B': case 'b': case 'N': case 'n':  case 'K': case 'k':
-//                                		if (path_clear_check(tempo, temp_end) && board(tempo)->legal_move_shape(tempo, temp_end)){
-//                                     	legal_move = true;
-//                                 	}
-//                                 	break;
-//                             	case 'P': case 'p':
-//                             		if (board(tempo)->legal_capture_shape(tempo, temp_end) || board(tempo)->legal_move_shape(tempo, temp_end)){
-//                                			legal_move = true;
-//                             		}
-//                             		break;
-//                        			default:
-//                             		break;
-//                         	}
+							// check if move is legal
+							bool legal_move = false;
+							switch (board(tempo)->to_ascii()){
+                            	case 'Q': case 'q': case 'R' : case 'r': case 'B': case 'b': case 'N': case 'n':  case 'K': case 'k':
+                               		if (path_clear_check(tempo, temp_end) && board(tempo)->legal_move_shape(tempo, temp_end)){
+                                    	legal_move = true;
+                                	}
+                                	break;
+                            	case 'P': case 'p':
+                            		if (board(tempo)->legal_capture_shape(tempo, temp_end) || board(tempo)->legal_move_shape(tempo, temp_end)){
+                               			legal_move = true;
+                            		}
+                            		break;
+                       			default:
+                            		break;
+                        	}
 						
-// 							// if move is legal, call in check, if false, returns false, otherwise continue
-// 							if (legal_move) {
+							// if move is legal, call in check, if false, returns false, otherwise continue
+							if (legal_move) {
 							
-// 								//Make copy of the board
-//         							Game fakegame = *this;
+								//Make copy of the board
+        							Game fakegame = *this;
 
-//        								//Move in fake board
-//         							fakegame.board.move_piece(tempo, temp_end);
+       								//Move in fake board
+        							fakegame.board.move_piece(tempo, temp_end);
         
-//        							 	//Would king be checked?
-//        							 	if(! fakegame.in_check(is_white_turn) ){
-//             								delete &fakegame;
-// 									return false;
-//         							}
+       							 	//Would king be checked?
+       							 	if(! fakegame.in_check(is_white_turn) ){
+            								delete &fakegame;
+									return false;
+        							}
 
-//         							//If king would be checked, delete fakegame and continue
-//         							delete &fakegame;
-// 							}	
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-	return false;
+        							//If king would be checked, delete fakegame and continue
+        							delete &fakegame;
+							}	
+						}
+					}
+				}
+			}
+		}
+	}
+	return true;
 	}
 
     // Return the total material point value of the designated player
@@ -423,7 +455,6 @@ namespace Chess
 		Position tempo(c, r);
 			if (*it != '-'){
 				game.board.add_piece(tempo,*it);
-				std::cout << *it;
 				it++;
 			}
 			else it++;

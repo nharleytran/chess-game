@@ -35,9 +35,6 @@ namespace Chess
 		// Destructor
 		~Board();
 
-		//Empty the board
-		void empty_it();
-
 		// Returns char representing the piece type at the given position
 		// char get_piece_type(const Position& position);
 

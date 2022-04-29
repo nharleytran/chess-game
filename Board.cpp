@@ -22,14 +22,15 @@ namespace Chess
 
   // = operator overload
   Board & Board:: operator=(const Board& rhs){
-  // Maybe need an if
-    // for (std::map<Position, Piece*>::const_iterator it = this->occ.begin();
-	  //   it != this->occ.end();
-	  //   it++)
-    // {
-    //   Piece* temp = it->second;
-    //   delete temp; 
-    // }
+  // deallocate memory before copy
+  for(char r = '8'; r >= '1'; r--) {
+      for(char c = 'A'; c <= 'H'; c++) {
+        if (occ.find(Position(c, r)) != occ.end()){
+          erase_piece(Position(c,r));
+        }
+      }
+    } 
+  //copy here
   for (std::map<Position, Piece*>::const_iterator it = rhs.occ.begin();
 	 it != rhs.occ.end();
 	 it++){
@@ -40,25 +41,6 @@ namespace Chess
 
   // Destructor
   Board :: ~Board(){
-    // for (std::map<Position, Piece*>::const_iterator it = this->occ.begin();
-	  //   it != this->occ.end();
-	  //   it++)
-    // {
-    //   Piece* temp = it->second;
-    //   delete temp; 
-    // }
-    for(char r = '8'; r >= '1'; r--) {
-      for(char c = 'A'; c <= 'H'; c++) {
-        if (occ.find(Position(c, r)) != occ.end()){
-          erase_piece(Position(c,r));
-        }
-      }
-    } 
-    std::cout <<"destructor called" << "\n";
-  }
-
-  //Empty the board
-  void Board:: empty_it(){
     for(char r = '8'; r >= '1'; r--) {
       for(char c = 'A'; c <= 'H'; c++) {
         if (occ.find(Position(c, r)) != occ.end()){
@@ -134,7 +116,7 @@ namespace Chess
   }
 
   void Board::display()const  {
-    // TODO: edit to make output pretty
+    // make output pretty
     Terminal :: color_fg(true, Terminal::RED);
     std::cout << "   A  B  C  D  E  F  G  H" << "\n";
     int i =8;

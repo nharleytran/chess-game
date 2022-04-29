@@ -304,67 +304,67 @@ namespace Chess
 
 
 	bool Game::in_stalemate(const bool& white) const {
-		// find position of player’s king
-Position king_pos = board.get_king(white);
+// 		// find position of player’s king
+// Position king_pos = board.get_king(white);
 	
-	// iterate through all board positions (start positions)
-	for(char r = '8'; r >= '1'; r--) {
-		for(char c = 'A'; c <= 'H'; c++) {
-			Position tempo(c,r);
+// 	// iterate through all board positions (start positions)
+// 	for(char r = '8'; r >= '1'; r--) {
+// 		for(char c = 'A'; c <= 'H'; c++) {
+// 			Position tempo(c,r);
 
-			// if there is a piece at tempo
-			if (board(tempo) != nullptr){
+// 			// if there is a piece at tempo
+// 			if (board(tempo) != nullptr){
 
-				// if that piece belongs to the same team as the king (same color)
-				if(board(tempo)->is_white() == white){
+// 				// if that piece belongs to the same team as the king (same color)
+// 				if(board(tempo)->is_white() == white){
 				
-					// iterate through all board positions (end positions)
-					for(char h = '8'; h >= '1'; r--) {
-						for(char k = 'A'; k <= 'H'; c++) {
-							Position temp_end(h,k);
+// 					// iterate through all board positions (end positions)
+// 					for(char h = '8'; h >= '1'; r--) {
+// 						for(char k = 'A'; k <= 'H'; c++) {
+// 							Position temp_end(h,k);
 						
-							// check if move is legal
-							bool legal_move = false;
-							switch (board(tempo)->to_ascii()){
-                            	case 'Q': case 'q': case 'R' : case 'r': case 'B': case 'b': case 'N': case 'n':  case 'K': case 'k':
-                               		if (path_clear_check(tempo, temp_end) && board(tempo)->legal_move_shape(tempo, temp_end)){
-                                    	legal_move = true;
-                                	}
-                                	break;
-                            	case 'P': case 'p':
-                            		if (board(tempo)->legal_capture_shape(tempo, temp_end) || board(tempo)->legal_move_shape(tempo, temp_end)){
-                               			legal_move = true;
-                            		}
-                            		break;
-                       			default:
-                            		break;
-                        	}
+// 							// check if move is legal
+// 							bool legal_move = false;
+// 							switch (board(tempo)->to_ascii()){
+//                             	case 'Q': case 'q': case 'R' : case 'r': case 'B': case 'b': case 'N': case 'n':  case 'K': case 'k':
+//                                		if (path_clear_check(tempo, temp_end) && board(tempo)->legal_move_shape(tempo, temp_end)){
+//                                     	legal_move = true;
+//                                 	}
+//                                 	break;
+//                             	case 'P': case 'p':
+//                             		if (board(tempo)->legal_capture_shape(tempo, temp_end) || board(tempo)->legal_move_shape(tempo, temp_end)){
+//                                			legal_move = true;
+//                             		}
+//                             		break;
+//                        			default:
+//                             		break;
+//                         	}
 						
-							// if move is legal, call in check, if false, returns false, otherwise continue
-							if (legal_move) {
+// 							// if move is legal, call in check, if false, returns false, otherwise continue
+// 							if (legal_move) {
 							
-								//Make copy of the board
-        							Game fakegame = *this;
+// 								//Make copy of the board
+//         							Game fakegame = *this;
 
-       								//Move in fake board
-        							fakegame.board.move_piece(tempo, temp_end);
+//        								//Move in fake board
+//         							fakegame.board.move_piece(tempo, temp_end);
         
-       							 	//Would king be checked?
-       							 	if(! fakegame.in_check(is_white_turn) ){
-            								delete &fakegame;
-									return false;
-        							}
+//        							 	//Would king be checked?
+//        							 	if(! fakegame.in_check(is_white_turn) ){
+//             								delete &fakegame;
+// 									return false;
+//         							}
 
-        							//If king would be checked, delete fakegame and continue
-        							delete &fakegame;
-							}	
-						}
-					}
-				}
-			}
-		}
-	}
-	return true;
+//         							//If king would be checked, delete fakegame and continue
+//         							delete &fakegame;
+// 							}	
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+	return false;
 	}
 
     // Return the total material point value of the designated player
@@ -410,34 +410,32 @@ Position king_pos = board.get_king(white);
 
       std::istream& operator>> (std::istream& is, Game& game) {
 	// Deallocate current game
-		// game.board.~Board();
-		Game fakegame;
+		game.~Game();
 	// loop through input file, and added a piece
 		char token;
-		std::cout << "HERE";
 		std::vector<char> list;
   			while (is >> token){
     		list.push_back(token);
     		}
-		
-		// for (std:: vector <char>:: iterator it = list.begin(); it != list.end(); ++it){
-		// 	char cur = *it;
-		// 	std:: cout <<cur;
-		// 	if (cur == '\n') list.erase(it);
-		// }
+	// loop through the board and add piece
 	std:: vector <char>:: iterator it = list.begin();
 	for(char r = '8'; r >= '1'; r--) {
       for(char c = 'A'; c <= 'H'; c++) {
 		Position tempo(c, r);
 			if (*it != '-'){
-				fakegame.board.add_piece(tempo,*it);
+				game.board.add_piece(tempo,*it);
 				std::cout << *it;
+				it++;
 			}
-		it++;
+			else it++;
 		}
 	  }
-	}
-	fakegame.display();
+	  	if (list[list.size()-1] == 'w'){
+		  	game.is_white_turn = true;
+		}
+		if(list[list.size()-1] == 'b') {
+			game.is_white_turn = false;
+		}
 		return is;
 	}
 

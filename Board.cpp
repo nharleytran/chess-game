@@ -40,14 +40,32 @@ namespace Chess
 
   // Destructor
   Board :: ~Board(){
-    for (std::map<Position, Piece*>::const_iterator it = this->occ.begin();
-	    it != this->occ.end();
-	    it++)
-    {
-      Piece* temp = it->second;
-      delete temp; 
-    }
+    // for (std::map<Position, Piece*>::const_iterator it = this->occ.begin();
+	  //   it != this->occ.end();
+	  //   it++)
+    // {
+    //   Piece* temp = it->second;
+    //   delete temp; 
+    // }
+    for(char r = '8'; r >= '1'; r--) {
+      for(char c = 'A'; c <= 'H'; c++) {
+        if (occ.find(Position(c, r)) != occ.end()){
+          erase_piece(Position(c,r));
+        }
+      }
+    } 
     std::cout <<"destructor called" << "\n";
+  }
+
+  //Empty the board
+  void Board:: empty_it(){
+    for(char r = '8'; r >= '1'; r--) {
+      for(char c = 'A'; c <= 'H'; c++) {
+        if (occ.find(Position(c, r)) != occ.end()){
+          erase_piece(Position(c,r));
+        }
+      }
+    } 
   }
 
 

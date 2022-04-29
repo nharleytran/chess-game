@@ -8,6 +8,9 @@ namespace Chess
 	class Bishop : public Piece {
 
 	public:
+
+	int point_value() const override { return 3; }
+
     bool legal_move_shape(const Position& start, const Position& end) const override;
 
 		/////////////////////////////////////

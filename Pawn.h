@@ -8,6 +8,8 @@ namespace Chess
 	class Pawn : public Piece {
 
 	public:
+		int point_value() const override { return 1; }
+
 		bool legal_move_shape(const Position& start, const Position& end) const override;
     
 		bool legal_capture_shape(const Position& start, const Position& end) const override;

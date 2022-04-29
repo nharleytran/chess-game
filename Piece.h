@@ -21,6 +21,9 @@ namespace Chess
 		// Returns information about the color of the piece.
 		bool is_white() const { return white; }
 
+		// Returns point value of piece, default is zero
+		virtual int point_value() const = 0;
+
 		// Indicates whether the given start and end coordinates describe a move that
 		// would be considered valid for this piece if there is no piece at the end
 		// position (i.e. this is not a capture move).

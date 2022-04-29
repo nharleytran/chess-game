@@ -234,33 +234,34 @@ namespace Chess
 	}
 
 	bool Game::in_mate(const bool& white) const {
-	
-		// find position of player’s king
-        Position king_pos = board.get_king(white);
-		//create fake board
+
 		if (this->in_check(white)){
+			//create fake board
 			Game fakegame;
 		for(char r = '8'; r >= '1'; r--) {
       		for(char c = 'A'; c <= 'H'; c++) {
-				  Position tempo(c,r);
-					// update fake board back 
-					fakegame = *this;
-
-					// try to move in fake board
-					try {fakegame.make_move(king_pos, tempo);}
-					catch (...){continue;}
-
-					// catch (const std::exception& e){std::cerr << "Could not make move:" << e.what()<< "\n";}		  
-					if(!fakegame.in_check(white)){
-						fakegame.display();
-					return false;
+        		Position tempo(c,r);
+				//if there is a piece at tempo
+				if (board(tempo)!= nullptr){
+					//if that piece belong to the other team (same color)
+					if(board(tempo)->is_white() == white){
+						//if that piece has any legal move to protect king
+						for(char r2 = '8'; r2 >= '1'; r2--) {
+      						for(char c2 = 'A'; c2 <= 'H'; c2++) {
+								  fakegame = *this;
+								  Position pos(c2,r2);
+								  try {fakegame.make_move(tempo, pos);}
+									catch (...){continue;}		  
+									if(!fakegame.in_check(white)){
+									return false;
+								}
+							}
+						}
 					}
-					
-					// fakegame.~Game();
+				}
 			}
 		}
-		fakegame.display();
-			return true;
+		return true;
 		}
 		return false;
 	}
@@ -333,10 +334,41 @@ namespace Chess
 	}
 	*/
 
-
+	bool Game::in_stalemate(const bool& white) const {
+		if (!this->in_check(white)){
+			//create fake board
+			Game fakegame;
+		for(char r = '8'; r >= '1'; r--) {
+      		for(char c = 'A'; c <= 'H'; c++) {
+        		Position tempo(c,r);
+				//if there is a piece at tempo
+				if (board(tempo)!= nullptr){
+					//if that piece belong to the other team (same color)
+					if(board(tempo)->is_white() == white){
+						//if that piece has any legal move to protect king
+						for(char r2 = '8'; r2 >= '1'; r2--) {
+      						for(char c2 = 'A'; c2 <= 'H'; c2++) {
+								  fakegame = *this;
+								  Position pos(c2,r2);
+								  try {fakegame.make_move(tempo, pos);}
+									catch (...){continue;}		  
+									if(!fakegame.in_check(white)){
+									return false;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return true;
+		}
+		return false;
+	}
+	/*	
 	bool Game::in_stalemate(const bool& white) const {
 		// find position of player’s king
-Position king_pos = board.get_king(white);
+		Position king_pos = board.get_king(white);
 	
 	// iterate through all board positions (start positions)
 	for(char r = '8'; r >= '1'; r--) {
@@ -397,6 +429,7 @@ Position king_pos = board.get_king(white);
 	}
 	return true;
 	}
+	*/
 
     // Return the total material point value of the designated player
     int Game::point_value(const bool& white) const {

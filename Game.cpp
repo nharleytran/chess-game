@@ -90,12 +90,12 @@ namespace Chess
 		if (!path_clear_check(start, end)){
 			throw Exception("path is not clear");
 		}
-	/*
+	
 		//Make copy of the board
 		Game fakegame = *this;
 
-		//Move in fake board
-		// fakegame.board.move_piece(start, end);
+		// //Move in fake board
+		// // fakegame.board.move_piece(start, end);
 		if (fakegame.board(end)!= nullptr){
 			if (fakegame.board(start)->is_white() != fakegame.board(end)->is_white()){
 				fakegame.board.erase_piece(end);}}
@@ -105,15 +105,16 @@ namespace Chess
 		if(fakegame.in_check(is_white_turn)){
 			throw Exception("move exposes check");
 		}
+		fakegame.display();
 
 		//If passed, actually move the piece
-		delete &fakegame;
-	*/
+		// delete &fakegame;
+	
 		//Normal Move and capturing
-		if (board(end)!= nullptr){
-			if (board(start)->is_white() != board(end)->is_white()){
-				board.erase_piece(end);}}
-		board.move_piece(start, end);
+		// if (board(end)!= nullptr){
+		// 	if (board(start)->is_white() != board(end)->is_white()){
+		// 		board.erase_piece(end);}}
+		// board.move_piece(start, end);
 
 		//Change turn
 		if (is_white_turn) is_white_turn=false;

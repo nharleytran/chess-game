@@ -23,17 +23,17 @@ namespace Chess
   // = operator overload
   Board & Board:: operator=(const Board& rhs){
   // Maybe need an if
-    for (std::map<Position, Piece*>::const_iterator it = this->occ.begin();
-	    it != this->occ.end();
-	    it++)
-    {
-      Piece* temp = it->second;
-      delete temp; 
-    }
+    // for (std::map<Position, Piece*>::const_iterator it = this->occ.begin();
+	  //   it != this->occ.end();
+	  //   it++)
+    // {
+    //   Piece* temp = it->second;
+    //   delete temp; 
+    // }
   for (std::map<Position, Piece*>::const_iterator it = rhs.occ.begin();
 	 it != rhs.occ.end();
 	 it++){
-     this->occ[it->first] = it->second;
+     this->add_piece(it->first, it->second->to_ascii());
    }
     return *this;
   }
@@ -124,7 +124,7 @@ namespace Chess
       std::cout << i << " ";
       for(char c = 'A'; c <= 'H'; c++) {
 	      if (occ.find(Position(c, r)) != occ.end()){
-          Terminal :: color_fg(true, Terminal::MAGENTA);
+          Terminal :: color_fg(true, Terminal::RED);
          
           if (c%2 != 0 && r%2 !=0){
           Terminal :: color_bg(Terminal::BLACK);

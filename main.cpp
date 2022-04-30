@@ -90,9 +90,7 @@ int main(int argc, char* argv[]) {
 				std::string argument;
 				std::cin >> argument;
 				std::ifstream ifs;
-				if (ifs){
-					throw Chess::Exception();
-				}
+				// if it doesnt open or if is empty 
 				ifs.open( argument );
 				ifs >> game;
 				ifs.close();
@@ -100,7 +98,7 @@ int main(int argc, char* argv[]) {
 				assert(game.is_valid_game());
 				break;
 			}
-			catch (const std::exception& e){std::cerr << "Cannot load the game!" << e.what()<< "\n";}  	//May be we don't need endl
+			catch (const std::exception& e){std::cerr << e.what();return -1;}  	//May be we don't need endl
 			}
 			case 'S': case 's': {
 				// Write a game to a file

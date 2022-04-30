@@ -119,14 +119,24 @@ namespace Chess
 	}
 
 	bool Game::position_on_board(const Position& x){
+		int flag = 0; 
 		for(char r = '8'; r >= '1'; r--) {
-      		for(char c = 'A'; c <= 'H'; c++) {
-        		if(x.first == c && x.second == r){
-					return true;}
+			if( x.second == r){
+				flag++;}
 			}
-		}	
-		return false;
-	}
+      	for(char c = 'A'; c <= 'H'; c++) {
+        		if(x.first == c ){
+				flag++;}
+			}
+		if (flag == 2)
+		{
+			return true;
+		}
+		else
+			return false;
+	}	
+		
+	
 
 	bool Game::path_clear_check(const Position& start, const Position& end) const {
 	
@@ -331,14 +341,9 @@ namespace Chess
   			while (is >> token){
     		list.push_back(token);
     		}
-		if (list.size() != 66){
-					throw Chess::Exception();
+		if (list.size() != 65){ 
+					throw Chess::Exception("Cannot load the game!\n");
 				} 
-		// for (std:: vector <char>:: iterator it1 = list.begin(); it1 != list.end();it1++){
-		// 	if (*it1 != 'q' || *it1 != 'Q' || *it1 != 'k' || *it1 != 'K'|| *it1 != 'p'|| *it1 != 'P'|| *it1 != 'b'|| *it1 != 'B'|| *it1 != 'n'|| *it1 != 'N'|| *it1 != 'r'|| *it1 != 'R'|| *it1 != 'm'|| *it1 != 'M'|| *it1 != 'w'|| *it1 != '-'){
-		// 			throw Chess::Exception();
-		// 		}
-		// }
 	// loop through the board and add piece
 	std:: vector <char>:: iterator it = list.begin();
 	for(char r = '8'; r >= '1'; r--) {

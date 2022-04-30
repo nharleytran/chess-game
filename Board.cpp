@@ -111,17 +111,23 @@ namespace Chess
   //invalid designator
     Piece* new_piece = create_piece(piece_designator);
     if (new_piece == nullptr) {
-      throw Exception("invalid designator");
+      throw Exception("invalid designator\n");
     }
   //invalid position
-    for(char r = '8'; r >= '1'; r--) {
-      for(char c = 'A'; c <= 'H'; c++) {
-        if(position.first == c && position.second == r){
-          //throw Exception("invalid position");
-        }
-      }
-    }
-    
+    int flag = 0; 
+		for(char r = '8'; r >= '1'; r--) {
+			if(position.second == r){
+				flag++;}
+			}
+    for(char c = 'A'; c <= 'H'; c++) {
+      if(position.first == c ){
+				flag++;}
+			}
+		if (flag != 2)
+		{
+			throw Exception("invalid position\n");
+		}
+	
   //position is occupied
     if (occ.find(position) != occ.end()) {
       throw Exception("position is occupied");

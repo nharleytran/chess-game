@@ -1,0 +1,427 @@
+commit 17465d24e72988bedee33b1795422412c032a06a
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Sat Apr 30 12:06:07 2022 -0400
+
+    edited README more
+
+commit c2f94fa8469110c4163ba8d4ddc76006f990b4f1
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Sat Apr 30 12:00:56 2022 -0400
+
+    added UML digaram to files
+
+commit 8f0501158fa0f95e26f0b1d7658d8e2caa940ba7
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Sat Apr 30 11:58:53 2022 -0400
+
+    updated README
+
+commit 0d70b2a1cc352789a513703fe1506c8618c94f5d
+Author: yenk7 <yensabror.k@gmail.com>
+Date:   Fri Apr 29 21:46:36 2022 -0400
+
+    README + falg for invalid poistion function
+
+commit 0248ca3a6d43a7f18b910dcc9a3e7a6d8e82b900
+Author: yenk7 <yensabror.k@gmail.com>
+Date:   Fri Apr 29 20:27:53 2022 -0400
+
+    add README INFO
+
+commit afff044b614decf174c2560b92ce647e17f0c0b0
+Author: yenk7 <yensabror.k@gmail.com>
+Date:   Fri Apr 29 20:25:37 2022 -0400
+
+    Mystery Piece check
+
+commit 31e54dd9eec8412eb5a2ee6c261bb374ca7b9075
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Fri Apr 29 19:30:32 2022 -0400
+
+    added point value functions
+
+commit a60bcede500d2a1fc430bcd2be2c06567ca4b403
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Fri Apr 29 18:55:25 2022 -0400
+
+    fixed in_check
+
+commit e2b04c2182d45ecf913140744724e91331070171
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Fri Apr 29 17:42:22 2022 -0400
+
+    minor edits to test file
+
+commit e480c136a0eb29a15c1fde9e2b61bad302ba8786
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Fri Apr 29 17:30:26 2022 -0400
+
+    finished implementing promotion in Board.cpp, edited README
+
+commit ca62e8cd1049abd81d111eadbf118b619214787c
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Fri Apr 29 17:09:35 2022 -0400
+
+    added promote function to Board.cpp
+
+commit a80ed46e90d56e80099d2ea11d3538da2e735d69
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 16:55:48 2022 -0400
+
+    "gradescopee"
+
+commit ab9659ff1a4f5b3651410381560fb19519f84b92
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 16:33:08 2022 -0400
+
+    EXCEPTION FOR IO
+
+commit c149951d12d9369e280eaadb520fdb00e180925a
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 16:10:18 2022 -0400
+
+    WORKINGGG
+
+commit 6ac223dde67384f6fc55bdf7ad0aad1e1eb86ad1
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 16:09:29 2022 -0400
+
+    STALEMATE FINISHHH
+
+commit 3062d6a7b7ab206804b52261aad981d2aac31fe8
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 15:21:15 2022 -0400
+
+    INCHECK & INMATE
+
+commit a676c896af24f402c3cb55596d0948f2ffe4c70b
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 14:04:26 2022 -0400
+
+    IT WORKS, INCHECK WORKS
+
+commit 1bff1fb07afa0f8b9d086871b990e9d6a9d0c1fa
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 13:59:41 2022 -0400
+
+    overload >>
+
+commit 01db591c3613cd1bffe17d19d25aa66c2972c583
+Merge: 6f6d85b 08efb04
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Fri Apr 29 13:25:01 2022 -0400
+
+    Merge branch 'master' of https://github.com/jhu-ip/2022-spring-final-ntran27-ykanash1-kelsman1
+
+commit 6f6d85b137d28b16393711eddd2070b5973e8a7a
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Fri Apr 29 13:24:54 2022 -0400
+
+    added stalemate and point value system
+
+commit 08efb04dc724e595a00e836b7c80e587547b734c
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 13:24:45 2022 -0400
+
+    asd
+
+commit 7ebd479d7cb1879deb72d469e6f27669b5df5658
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 13:23:44 2022 -0400
+
+    asd
+
+commit cdb6abac53db4595555f46a35db3e94c2072f4ab
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 13:17:49 2022 -0400
+
+    add stuffs to test
+
+commit fe3a3bb5900ca6bb0579f72041fd4818e93374d8
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 12:15:47 2022 -0400
+
+    changes
+
+commit c10d6a370b71d27d012d79112a45c140f15bc206
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 10:34:27 2022 -0400
+
+    destructor
+
+commit 9c5cceb58b90e9502d0764ff972e1a60f08478cc
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Fri Apr 29 00:58:13 2022 -0400
+
+    fix memory copy constructor
+
+commit fadce68e2668a0fb68d4a838101a044bfd817622
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Thu Apr 28 23:59:14 2022 -0400
+
+    make clean
+
+commit c766d3c6809f5ce867a768dd6f61a0485dfb6530
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Thu Apr 28 23:58:55 2022 -0400
+
+    CREATIVE DISPLAY AS YOU WISH
+
+commit 9017a70e4eb05e48a3652f9e9f867e18104c3801
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Thu Apr 28 23:06:54 2022 -0400
+
+    fix
+
+commit 34c57b54d88fefbaec6adf37350ec7c42ac111d4
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Thu Apr 28 22:05:11 2022 -0400
+
+    display
+
+commit 110e2d505d3ab76625c12fa153313e13d2a8a421
+Author: yenk7 <yensabror.k@gmail.com>
+Date:   Thu Apr 28 20:59:46 2022 -0400
+
+    working errors in check and mate one segmantion another infnite loop
+
+commit ac60cfe84b5e0916761fe30df44f0d93671104ad
+Author: yenk7 <yensabror.k@gmail.com>
+Date:   Thu Apr 28 20:42:24 2022 -0400
+
+    in mate error infinte loop
+
+commit 649d57be77bb3749183459cc0a68f318c9d87a51
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Thu Apr 28 15:46:31 2022 -0400
+
+    \\\\\
+
+commit ccfd3a5eba171a39f45eb03d62f3718803004903
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Thu Apr 28 15:44:13 2022 -0400
+
+    added in_mate
+
+commit d49d0aa89145e84563d08612d0c5eafbc12f07e5
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Thu Apr 28 15:43:04 2022 -0400
+
+    asda
+
+commit 545dd3a2eca30911086bbf73699f15e7c2f8ae45
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Thu Apr 28 15:41:29 2022 -0400
+
+    debugging up until incheck
+
+commit 436727c34887d68c742e2c519bc5f996705843a9
+Author: yenk7 <yensabror.k@gmail.com>
+Date:   Wed Apr 27 16:14:32 2022 -0400
+
+    destructor
+
+commit 6c33bd637b422fa6a377a1ed600aa96d137ccccb
+Author: yenk7 <yensabror.k@gmail.com>
+Date:   Wed Apr 27 15:49:26 2022 -0400
+
+    testing
+
+commit a474c6f8094a7b2358532fcad74926930eb9849c
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 15:42:16 2022 -0400
+
+    complete make move
+
+commit db402daf811acad5fba37406190dd758839c8c31
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 15:03:22 2022 -0400
+
+    add in_check
+
+commit 1d273253e653a4cf9d54100448eafda51d2a11c4
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 14:13:59 2022 -0400
+
+    RULE OF 3
+
+commit 3e4b9b71953a7866bc4007e6411387d2ef3421c2
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Wed Apr 27 13:16:40 2022 -0400
+
+    minor edits
+
+commit e8782cb90515708ccca4b670c8d670143b6bbf47
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 13:00:40 2022 -0400
+
+    add exception
+
+commit 0289178d8dd68cdd636ea7f52e5a0bbcd957be38
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 11:54:47 2022 -0400
+
+    game update
+
+commit a3de97c3d939d1cc0e4a466a341f1977d2ae4743
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Wed Apr 27 11:48:37 2022 -0400
+
+    wrote get_king in Board.cpp
+
+commit 282ea1e48643484d86a5ef385a3889c3f66d785e
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 11:30:06 2022 -0400
+
+    comments
+
+commit 917b68787f85a65e84efeeb7f2199abb3681977f
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Wed Apr 27 11:23:07 2022 -0400
+
+    minor edits
+
+commit b834e901ffbeee4136b325fc4144585cf12c6b73
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Wed Apr 27 11:12:36 2022 -0400
+
+    minor edit to rook
+
+commit df5b362af1c84ec8894f219f8387710ff1af0464
+Merge: 7b67d73 02ce3c7
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 11:09:59 2022 -0400
+
+    Merge branch 'master' of https://github.com/jhu-ip/2022-spring-final-ntran27-ykanash1-kelsman1
+
+commit 7b67d73464f687bf30d754437fce5a40cf9861d1
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 11:08:56 2022 -0400
+
+    first 3 exceptions
+
+commit 02ce3c71739075935bc69143fbb8c934a2a941ad
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Wed Apr 27 11:08:53 2022 -0400
+
+    wrote get_piece_type in Board.cpp
+
+commit f0ef3840d64fd864ea2fec85c7ab39230a8bc79b
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 10:52:24 2022 -0400
+
+    adding stuffs
+
+commit 83843f1def4683321dad627024f69bb4925358ed
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 10:27:19 2022 -0400
+
+    change name
+
+commit a089972cdf0a681fdc35bcc1c7b43fd01bbdea72
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 10:17:52 2022 -0400
+
+    use if
+
+commit c0d2044559f58b7cff62bf480116002aa13f340d
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Wed Apr 27 00:19:00 2022 -0400
+
+    obstruction check
+
+commit c2e12cc30244508b26fe3bb7cdd6e5b2d518cb16
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Tue Apr 26 18:23:27 2022 -0400
+
+    minor edits
+
+commit de995a38ce93d69dcb655fe78a4b1d75e74cdcdf
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Tue Apr 26 18:22:14 2022 -0400
+
+    implemented obstruction_check for Rook
+
+commit fc1c5f4dc0d1c51480f6ed28a3ce670b1784b943
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Tue Apr 26 11:36:18 2022 -0400
+
+    added function definitions for rule of 3 in Board.h
+
+commit 1a3624e00cfbf545b06b1fc5c69895281602653f
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Tue Apr 26 11:26:15 2022 -0400
+
+    Rook.cpp added minor comments
+
+commit d8746d27c3f9dfc40cd468aa97417e80ed60a9bd
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Mon Apr 25 18:16:01 2022 -0400
+
+    exceptions for add piece 2
+
+commit dbd1db07fc74cb6a3b7a98ea2eb6c9ea2e1dcb96
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Mon Apr 25 18:14:34 2022 -0400
+
+    exceptions for add piece 2
+
+commit 773fb6a1833fe4edf8af5ab787e828403962c13c
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Mon Apr 25 18:14:11 2022 -0400
+
+    exceptions for add piece
+
+commit 21d88bb55c1e0a5111ffe8bb2af46de43a5ccbb8
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Mon Apr 25 18:00:49 2022 -0400
+
+    added exceptions to add_piece in Board.cpp
+
+commit afd896c1b32fd22dd42bd2dc6e83bf12a6391be2
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Mon Apr 25 17:44:08 2022 -0400
+
+    edited add_piece in board.cpp
+
+commit 8b0df930d6c57f09d6dd8d154aa73096eb7de188
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Mon Apr 25 17:08:27 2022 -0400
+
+    added to bishop and king
+
+commit 03a128b45a899d0bf7e6a50178e48ac1dd4559ad
+Author: nharleytran <98291123+nharleytran@users.noreply.github.com>
+Date:   Mon Apr 25 16:43:18 2022 -0400
+
+    added Bishop.cpp and King.cpp
+
+commit c81f6f303aab4db8b831fec8d0bd065604420f8f
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Mon Apr 25 15:48:31 2022 -0400
+
+    implemented Knight legal_move_shape
+
+commit ab0bfe97bcc43fbdd582ce3db2ec6861870423e5
+Author: yenk7 <yensabror.k@gmail.com>
+Date:   Sun Apr 24 22:33:41 2022 -0400
+
+    added extra cpps defined pawn logic, some board logic, and queen logic
+
+commit 75eb9fe20eacd6d9e28121d92d6be1616e8c4962
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Sun Apr 24 12:14:19 2022 -0400
+
+    implemented Rook legal_move_shape
+
+commit 302da25105fe477ebd110beeba24c52060e3b951
+Author: Kenneth Elsman <98336240+Kenneth-E@users.noreply.github.com>
+Date:   Sat Apr 23 13:44:31 2022 -0400
+
+    added knight and rook cpp files
+
+commit bb98201a005a7ed0b3675f7713617c3aace9695a
+Author: yenk7 <yensabror.k@gmail.com>
+Date:   Sat Apr 23 12:14:07 2022 -0400
+
+    Project

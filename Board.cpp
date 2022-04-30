@@ -135,7 +135,7 @@ namespace Chess
     // make output pretty
     Terminal :: color_fg(true, Terminal::RED);
     std::cout << "   A  B  C  D  E  F  G  H" << "\n";
-    int i =8;
+    int i = 8;
     Terminal :: color_fg(true, Terminal::RED);
     for(char r = '8'; r >= '1'; r--) {
       std::cout << i << " ";
@@ -158,6 +158,8 @@ namespace Chess
             case 'n' : std:: cout << " ♞ "; break;
             case 'p' : std:: cout << " ♟ "; break;
             case 'b' : std:: cout << " ♝ "; break;
+            case 'm' : std:: cout << " ? "; break;
+            case 'M' : std:: cout << " ඞ "; break;
             default: break;
           }
           }
@@ -176,6 +178,8 @@ namespace Chess
             case 'n' : std:: cout << " ♞ "; break;
             case 'p' : std:: cout << " ♟ "; break;
             case 'b' : std:: cout << " ♝ "; break;
+            case 'm' : std:: cout << " ? "; break;
+            case 'M' : std:: cout << " ඞ "; break;            
             default: break;
           }
           
@@ -195,6 +199,8 @@ namespace Chess
             case 'n' : std:: cout << " ♞ "; break;
             case 'p' : std:: cout << " ♟ "; break;
             case 'b' : std:: cout << " ♝ "; break;
+            case 'm' : std:: cout << " ? "; break;
+            case 'M' : std:: cout << " ඞ "; break;
             default: break;
           }
           
@@ -214,6 +220,8 @@ namespace Chess
             case 'n' : std:: cout << " ♞ "; break;
             case 'p' : std:: cout << " ♟ "; break;
             case 'b' : std:: cout << " ♝ "; break;
+            case 'm' : std:: cout << " ? "; break;
+            case 'M' : std:: cout << " ඞ "; break;
             default: break;
           }
           

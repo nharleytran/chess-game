@@ -265,74 +265,6 @@ namespace Chess
 		}
 		return false;
 	}
-/*
-	bool Game::in_mate(const bool& white) const {
-	
-		// find position of player’s king
-        Position king_pos = board.get_king(white);
-		
-	    // iterate through all board positions (start positions)
-	    for(char r = '8'; r >= '1'; r--) {
-		    for(char c = 'A'; c <= 'H'; c++) {
-			    Position tempo(c,r);
-				
-			    // if there is a piece at tempo
-			    if (board(tempo) != nullptr){
-
-				    // if that piece belongs to the same team as the king (same color)
-				    if(board(tempo)->is_white() == white){
-				
-				        // iterate through all board positions (end positions)
-				        for(char h = '8'; h >= '1'; r--) {
-					        for(char k = 'A'; k <= 'H'; c++) {
-						        Position temp_end(h,k);
-						
-						        // check if move is legal
-						        bool legal_move = false;
-						        switch (board(tempo)->to_ascii()){
-                            		case 'Q': case 'q': case 'R' : case 'r': case 'B': case 'b': case 'N': case 'n': case 'K': case 'k':
-                               		 	if (path_clear_check(tempo, temp_end) && board(tempo)->legal_move_shape(tempo, temp_end)){
-                                    			legal_move = true;
-                                		}
-                                		break;
-                            		case 'P': case 'p':
-                                		if (board(tempo)->legal_capture_shape(tempo, temp_end) || board(tempo)->legal_move_shape(tempo, temp_end)){
-                                   			legal_move = true;
-                                		}
-                                		break;
-                           		 	default:
-                                		break;
-                        			}
-						
-						        // if move is legal, call in check, if false, returns false, otherwise continue
-						        if (legal_move) {
-							
-							        //Make copy of the board
-        						    Game fakegame = *this;
-
-       							    //Move in fake board
-        						    fakegame.board.move_piece(tempo, temp_end);
-        
-       							    //Is king still checked?
-       							    if(! fakegame.in_check(is_white_turn) ){
-            							delete &fakegame;
-								        return false;
-        						    }
-
-        						    //If still checked, delete fakegame and continue
-        						    delete &fakegame;
-						        }
-					        }
-				        }
-				    }
-			    }
-		    }
-	    }
-	
-        return true;
-	
-	}
-	*/
 
 	bool Game::in_stalemate(const bool& white) const {
 		if (!this->in_check(white)){
@@ -365,71 +297,6 @@ namespace Chess
 		}
 		return false;
 	}
-	/*	
-	bool Game::in_stalemate(const bool& white) const {
-		// find position of player’s king
-		Position king_pos = board.get_king(white);
-	
-	// iterate through all board positions (start positions)
-	for(char r = '8'; r >= '1'; r--) {
-		for(char c = 'A'; c <= 'H'; c++) {
-			Position tempo(c,r);
-
-			// if there is a piece at tempo
-			if (board(tempo) != nullptr){
-
-				// if that piece belongs to the same team as the king (same color)
-				if(board(tempo)->is_white() == white){
-				
-					// iterate through all board positions (end positions)
-					for(char h = '8'; h >= '1'; r--) {
-						for(char k = 'A'; k <= 'H'; c++) {
-							Position temp_end(h,k);
-						
-							// check if move is legal
-							bool legal_move = false;
-							switch (board(tempo)->to_ascii()){
-                            	case 'Q': case 'q': case 'R' : case 'r': case 'B': case 'b': case 'N': case 'n':  case 'K': case 'k':
-                               		if (path_clear_check(tempo, temp_end) && board(tempo)->legal_move_shape(tempo, temp_end)){
-                                    	legal_move = true;
-                                	}
-                                	break;
-                            	case 'P': case 'p':
-                            		if (board(tempo)->legal_capture_shape(tempo, temp_end) || board(tempo)->legal_move_shape(tempo, temp_end)){
-                               			legal_move = true;
-                            		}
-                            		break;
-                       			default:
-                            		break;
-                        	}
-						
-							// if move is legal, call in check, if false, returns false, otherwise continue
-							if (legal_move) {
-							
-								//Make copy of the board
-        							Game fakegame = *this;
-
-       								//Move in fake board
-        							fakegame.board.move_piece(tempo, temp_end);
-        
-       							 	//Would king be checked?
-       							 	if(! fakegame.in_check(is_white_turn) ){
-            								delete &fakegame;
-									return false;
-        							}
-
-        							//If king would be checked, delete fakegame and continue
-        							delete &fakegame;
-							}	
-						}
-					}
-				}
-			}
-		}
-	}
-	return true;
-	}
-	*/
 
     // Return the total material point value of the designated player
     int Game::point_value(const bool& white) const {
@@ -464,10 +331,10 @@ namespace Chess
   			while (is >> token){
     		list.push_back(token);
     		}
-		// if (list.size() != 65){
-		// 			throw Chess::Exception();
-		// 		}
-		// for (std:: vector <char>:: iterator it1 = list.begin();it1 != list.end();it1++){
+		if (list.size() != 66){
+					throw Chess::Exception();
+				} 
+		// for (std:: vector <char>:: iterator it1 = list.begin(); it1 != list.end();it1++){
 		// 	if (*it1 != 'q' || *it1 != 'Q' || *it1 != 'k' || *it1 != 'K'|| *it1 != 'p'|| *it1 != 'P'|| *it1 != 'b'|| *it1 != 'B'|| *it1 != 'n'|| *it1 != 'N'|| *it1 != 'r'|| *it1 != 'R'|| *it1 != 'm'|| *it1 != 'M'|| *it1 != 'w'|| *it1 != '-'){
 		// 			throw Chess::Exception();
 		// 		}

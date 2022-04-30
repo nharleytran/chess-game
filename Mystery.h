@@ -12,9 +12,11 @@ namespace Chess
 	class Mystery : public Piece {
 
 	public:
-		bool legal_move_shape(const Position&, const Position&) const override { return false; }
-
+		// bool legal_move_shape(const Position&, const Position&) const override { return false; }
+		bool legal_move_shape(const Position&, const Position&) const override {return false;};
 		char to_ascii() const override { return is_white() ? 'M' : 'm';	}
+
+		int point_value() const override { return 10; }
     
     std::string to_unicode() const override { return is_white() ? "\u2687" : "\u2689"; }
 

@@ -175,7 +175,6 @@ namespace Chess
           	}}}}
 
 	//diagonal movement
-	//CLEAN THE CODE
 	if (abs(dx) == abs(dy)) {
 		if (dx > 0 && dy > 0){
 			for (char i = 1, j = 1; i < abs(dx); i++, j++){

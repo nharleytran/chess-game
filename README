@@ -11,12 +11,10 @@ JHED: ntran27
 
 
 DESIGN
-1. Looping through Board
-2. Game duplication with = operator which frees previous memory if necessary before creating a copy of a game. 
-3. Game destructor which iterates through the board and frees the memory of all pieces. 
-4. Point Value:  we implemented a point value function in each piece.h with its respected value which is later called in the game as a feature of the board at a specific position. This way the point value function in the game.cpp is agnostic relative to the piece, so it would be able to handle the mystery piece. (Kenneth checks and modifies)
-5. Board Display: display the black and white square based on position value (odd or even). Display pieces using chess   
-   symbols. Harmonize the given colors to produce this perfectly vivid board. It is highly recommended to use Dark mode to fully appreciate the aesthetics of the design. 
+1. Looping Through Board: We looped through the board wherever needed using the character ascii values, allowing us to add and subtract in order to move along the rows and columns of the board.
+2. Rule of 3 Implementation: We implemented rule of 3 for the board class which frees previously allocated piece memory if necessary before creating a copy of the board. This duplication is used to carry out a move in the fake game board to see if it is legal. This method is also used for the in_check, in_mate, and in_stalemate functions.
+4. Point Value: We implemented a point_value function in piece.h, along with all of the derived piece classes. A piece's respected value can be called by making use of polymorphism in order to override the piece.h point_value function wherever needed. This way the point_value function in the game class is agnostic relative to the piece, so it would be able to handle the mystery piece as well.
+5. Board Display: The terminal displays a grid of black and white squares based on position value (odd or even) along with displaying the pieces using chess symbols. Furthermore, letters and numbers indicating the position of each square are shown on all sides of the grid. It is highly recommended to use dark mode to fully appreciate the aesthetics of the design. 
 
 
 COMPLETENESS

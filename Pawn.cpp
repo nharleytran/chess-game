@@ -1,6 +1,6 @@
 #include "Pawn.h"
 
-bool Chess::Pawn::legal_move_shape(const Position& start, const Position& end) const
+bool Chess::Pawn::legal_move_shape(const Position &start, const Position &end) const
 {
     int dx = end.first - start.first;
     int dy = end.second - start.second;
@@ -20,14 +20,14 @@ bool Chess::Pawn::legal_move_shape(const Position& start, const Position& end) c
             return (dx == 0 && dy == -1) || (dx == 0 && dy == -2);
         else
             return (dx == 0 && dy == -1);
-    }    
+    }
 }
 
-
-bool Chess::Pawn::legal_capture_shape(const Position& start, const Position& end) const 
+bool Chess::Pawn::legal_capture_shape(const Position &start, const Position &end) const
 {
     int dx = end.first - start.first;
     int dy = end.second - start.second;
+    // pawn captures on a diagonal
     if (is_white())
         return abs(dx) == 1 && dy == 1;
     else

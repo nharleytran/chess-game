@@ -35,9 +35,6 @@ namespace Chess
 		// Destructor
 		~Board();
 
-		// Returns char representing the piece type at the given position
-		// char get_piece_type(const Position& position);
-
 		// Returns position of specified king
 		Position get_king(const bool white) const;
 
@@ -55,8 +52,10 @@ namespace Chess
 		// -- if the specified position is occupied, throw exception with error message "position is occupied"
 		void add_piece(const Position& position, const char& piece_designator);
 
+		// Removes piece from board and deallocates its memory
 		void erase_piece(const Position& position);
 
+		// Moves piece from start to end position, capture end piece if nessecary, promotes piece if needed
 		void move_piece(const Position& start, const Position& end);
 
 		// Displays the board by printing it to stdout

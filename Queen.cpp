@@ -1,6 +1,6 @@
 #include "Queen.h"
 #include <stdlib.h>
-bool Chess::Queen::legal_move_shape(const Position& start, const Position& end) const 
+bool Chess::Queen::legal_move_shape(const Position &start, const Position &end) const
 {
     int dx = abs(end.first - start.first);
     int dy = abs(end.second - start.second);
@@ -10,4 +10,3 @@ bool Chess::Queen::legal_move_shape(const Position& start, const Position& end) 
     // dx != 0 && dy == 0  - horizontal movement
     return (dx == dy && dx > 0) || (dx == 0 && dy != 0) || (dx != 0 && dy == 0);
 }
-

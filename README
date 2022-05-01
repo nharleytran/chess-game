@@ -16,7 +16,7 @@ DESIGN
 3. Piece Movement: In order to move a piece, a series of check must be passed starting with making sure that the piece you are trying to move is even on the board, and ending with making sure that the movement doesn't lead to your king being in check. Furthermore, there is also a path_clear_check function in game.cpp that checks if the path is clear from the start to end positions if the path is along a vertical, horizontal, or diagonal line.
 4. Point Value: We implemented a point_value function in piece.h, along with all of the derived piece classes. A piece's respected value can be called by making use of polymorphism in order to override the piece.h point_value function wherever needed. This way the point_value function in the game class is agnostic relative to the piece, so it would be able to handle the mystery piece as well.
 5. Board Display: The terminal displays a grid of black and white squares based on position value (odd or even) along with displaying the pieces using chess symbols. Furthermore, letters and numbers indicating the position of each square are shown on all sides of the grid. It is highly recommended to use dark mode to fully appreciate the aesthetics of the design. 
-
+6. Readability: We used the in_check function inside of in_mate and in_stalemate to improve readability and utilize the in_check logic inside these functions.
 
 COMPLETENESS
 Our program fulffils the spefications provided in the project description to its fullest.  

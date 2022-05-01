@@ -16,7 +16,7 @@ namespace Chess
 		// piece positions, and sets the state to white's turn
 		Game();
 
-		//destructor
+		// Destructor
 		~Game();
 
 		// Returns true if it is white's turn
@@ -41,8 +41,10 @@ namespace Chess
 		// the turn is switched white <-> black. Otherwise, an exception is thrown
 		void make_move(const Position& start, const Position& end);
 
+		// Returns true if the position is on the board
 		bool position_on_board(const Position& x);
 
+		// Returns true if the path is clear for movement
 		bool path_clear_check(const Position& start, const Position& end) const;
 
 		// Returns true if the designated player is in check
